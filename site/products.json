@@ -1,0 +1,1316 @@
+[
+ {
+  "id": "1",
+  "category": "SPARKLERS",
+  "name": "7 CM MIXED ELECTRIC",
+  "pack": "1 BOX",
+  "mrp": 160.0,
+  "price": 16.0,
+  "img": "assets/sparklers.jpg"
+ },
+ {
+  "id": "2",
+  "category": "SPARKLERS",
+  "name": "7 CM MIXED COLOURS",
+  "pack": "1 BOX",
+  "mrp": 180.0,
+  "price": 18.0,
+  "img": "assets/sparklers.jpg"
+ },
+ {
+  "id": "3",
+  "category": "SPARKLERS",
+  "name": "10 CM ELECTRIC",
+  "pack": "1 BOX",
+  "mrp": 200.0,
+  "price": 20.0,
+  "img": "assets/sparklers.jpg"
+ },
+ {
+  "id": "4",
+  "category": "SPARKLERS",
+  "name": "10 CM COLOUR",
+  "pack": "1 BOX",
+  "mrp": 230.0,
+  "price": 23.0,
+  "img": "assets/sparklers.jpg"
+ },
+ {
+  "id": "5",
+  "category": "SPARKLERS",
+  "name": "10 CM GREEN",
+  "pack": "1 BOX",
+  "mrp": 240.0,
+  "price": 24.0,
+  "img": "assets/sparklers.jpg"
+ },
+ {
+  "id": "6",
+  "category": "SPARKLERS",
+  "name": "10 CM RED",
+  "pack": "1 BOX",
+  "mrp": 260.0,
+  "price": 26.0,
+  "img": "assets/sparklers.jpg"
+ },
+ {
+  "id": "7",
+  "category": "SPARKLERS",
+  "name": "12 CM ELECTRIC",
+  "pack": "1 BOX",
+  "mrp": 290.0,
+  "price": 29.0,
+  "img": "assets/sparklers.jpg"
+ },
+ {
+  "id": "8",
+  "category": "SPARKLERS",
+  "name": "12 CM COLOUR",
+  "pack": "1 BOX",
+  "mrp": 310.0,
+  "price": 31.0,
+  "img": "assets/sparklers.jpg"
+ },
+ {
+  "id": "9",
+  "category": "SPARKLERS",
+  "name": "12 CM GREEN",
+  "pack": "1 BOX",
+  "mrp": 340.0,
+  "price": 34.0,
+  "img": "assets/sparklers.jpg"
+ },
+ {
+  "id": "10",
+  "category": "SPARKLERS",
+  "name": "12 CM RED",
+  "pack": "1 BOX",
+  "mrp": 360.0,
+  "price": 36.0,
+  "img": "assets/sparklers.jpg"
+ },
+ {
+  "id": "11",
+  "category": "SPARKLERS",
+  "name": "15 CM ELECTRIC",
+  "pack": "1 BOX",
+  "mrp": 480.0,
+  "price": 48.0,
+  "img": "assets/sparklers.jpg"
+ },
+ {
+  "id": "12",
+  "category": "SPARKLERS",
+  "name": "15 CM COLOUR",
+  "pack": "1 BOX",
+  "mrp": 500.0,
+  "price": 50.0,
+  "img": "assets/sparklers.jpg"
+ },
+ {
+  "id": "13",
+  "category": "SPARKLERS",
+  "name": "15 CM GREEN",
+  "pack": "1 BOX",
+  "mrp": 530.0,
+  "price": 53.0,
+  "img": "assets/sparklers.jpg"
+ },
+ {
+  "id": "14",
+  "category": "SPARKLERS",
+  "name": "15 CM RED",
+  "pack": "1 BOX",
+  "mrp": 580.0,
+  "price": 58.0,
+  "img": "assets/sparklers.jpg"
+ },
+ {
+  "id": "15",
+  "category": "SPARKLERS",
+  "name": "30 CM ELECTRIC",
+  "pack": "1 BOX",
+  "mrp": 480.0,
+  "price": 48.0,
+  "img": "assets/sparklers.jpg"
+ },
+ {
+  "id": "16",
+  "category": "SPARKLERS",
+  "name": "30 CM COLOUR",
+  "pack": "1 BOX",
+  "mrp": 500.0,
+  "price": 50.0,
+  "img": "assets/sparklers.jpg"
+ },
+ {
+  "id": "17",
+  "category": "SPARKLERS",
+  "name": "30 CM GREEN",
+  "pack": "1 BOX",
+  "mrp": 530.0,
+  "price": 53.0,
+  "img": "assets/sparklers.jpg"
+ },
+ {
+  "id": "18",
+  "category": "SPARKLERS",
+  "name": "30 CM RED",
+  "pack": "1 BOX",
+  "mrp": 580.0,
+  "price": 58.0,
+  "img": "assets/sparklers.jpg"
+ },
+ {
+  "id": "19",
+  "category": "SPARKLERS",
+  "name": "50 CM ELECTRIC",
+  "pack": "1 BOX",
+  "mrp": 2040.0,
+  "price": 204.0,
+  "img": "assets/sparklers.jpg"
+ },
+ {
+  "id": "20",
+  "category": "SPARKLERS",
+  "name": "50 CM CRACKLING",
+  "pack": "1 BOX",
+  "mrp": 2280.0,
+  "price": 228.0,
+  "img": "assets/sparklers.jpg"
+ },
+ {
+  "id": "21",
+  "category": "FLOWER POTS",
+  "name": "FLOWER POTS SMALL",
+  "pack": "1 BOX",
+  "mrp": 540.0,
+  "price": 54.0,
+  "img": "assets/fountain.jpg"
+ },
+ {
+  "id": "22",
+  "category": "FLOWER POTS",
+  "name": "FLOWER POTS BIG",
+  "pack": "1 BOX",
+  "mrp": 900.0,
+  "price": 90.0,
+  "img": "assets/fountain.jpg"
+ },
+ {
+  "id": "23",
+  "category": "FLOWER POTS",
+  "name": "FLOWER POTS SPECIAL",
+  "pack": "1 BOX",
+  "mrp": 1140.0,
+  "price": 114.0,
+  "img": "assets/fountain.jpg"
+ },
+ {
+  "id": "24",
+  "category": "FLOWER POTS",
+  "name": "FLOWER POTS ASOKA",
+  "pack": "1 BOX",
+  "mrp": 1680.0,
+  "price": 168.0,
+  "img": "assets/fountain.jpg"
+ },
+ {
+  "id": "25",
+  "category": "FLOWER POTS",
+  "name": "FLOWER PORT SUPER DELUX (5 PCS)",
+  "pack": "1 BOX",
+  "mrp": 2280.0,
+  "price": 228.0,
+  "img": "assets/fountain.jpg"
+ },
+ {
+  "id": "26",
+  "category": "FLOWER POTS",
+  "name": "COLOUR KOTI",
+  "pack": "1 BOX",
+  "mrp": 2520.0,
+  "price": 252.0,
+  "img": "assets/fountain.jpg"
+ },
+ {
+  "id": "27",
+  "category": "GROUND CHAKKAR",
+  "name": "GUOUND CHAKKAR SMALL",
+  "pack": "1 BOX",
+  "mrp": 540.0,
+  "price": 54.0,
+  "img": "assets/chakkar.jpg"
+ },
+ {
+  "id": "28",
+  "category": "GROUND CHAKKAR",
+  "name": "GUOUND CHAKKAR BIG",
+  "pack": "1 BOX",
+  "mrp": 1140.0,
+  "price": 114.0,
+  "img": "assets/chakkar.jpg"
+ },
+ {
+  "id": "29",
+  "category": "GROUND CHAKKAR",
+  "name": "GROUND CHAKKAR SPECIAL",
+  "pack": "1 BOX",
+  "mrp": 900.0,
+  "price": 90.0,
+  "img": "assets/chakkar.jpg"
+ },
+ {
+  "id": "30",
+  "category": "GROUND CHAKKAR",
+  "name": "GUOUND CHAKKAR ASHOKA",
+  "pack": "1 BOX",
+  "mrp": 840.0,
+  "price": 84.0,
+  "img": "assets/chakkar.jpg"
+ },
+ {
+  "id": "31",
+  "category": "GROUND CHAKKAR",
+  "name": "GUOUND CHAKKAR DELUXE",
+  "pack": "1 BOX",
+  "mrp": 1620.0,
+  "price": 162.0,
+  "img": "assets/chakkar.jpg"
+ },
+ {
+  "id": "32",
+  "category": "SINGLE SOUND",
+  "name": "2.75 KURUVI",
+  "pack": "1 PKT",
+  "mrp": 120.0,
+  "price": 12.0,
+  "img": "assets/string.jpg"
+ },
+ {
+  "id": "33",
+  "category": "SINGLE SOUND",
+  "name": "3.5 LAKCH\u039c\u0399",
+  "pack": "1 PKT",
+  "mrp": 190.0,
+  "price": 19.0,
+  "img": "assets/string.jpg"
+ },
+ {
+  "id": "34",
+  "category": "SINGLE SOUND",
+  "name": "4 LAKSHMI",
+  "pack": "1 PKT",
+  "mrp": 290.0,
+  "price": 29.0,
+  "img": "assets/string.jpg"
+ },
+ {
+  "id": "35",
+  "category": "SINGLE SOUND",
+  "name": "4 DELUX LAKSHMI",
+  "pack": "1 PKT",
+  "mrp": 380.0,
+  "price": 38.0,
+  "img": "assets/string.jpg"
+ },
+ {
+  "id": "36",
+  "category": "SINGLE SOUND",
+  "name": "4 GOLD LAKSHMI",
+  "pack": "1 PKT",
+  "mrp": 420.0,
+  "price": 42.0,
+  "img": "assets/string.jpg"
+ },
+ {
+  "id": "37",
+  "category": "SINGLE SOUND",
+  "name": "4 HULK",
+  "pack": "1 PKT",
+  "mrp": 420.0,
+  "price": 42.0,
+  "img": "assets/string.jpg"
+ },
+ {
+  "id": "38",
+  "category": "SINGLE SOUND",
+  "name": "4.5 BAHUBALI",
+  "pack": "1 PKT",
+  "mrp": 580.0,
+  "price": 58.0,
+  "img": "assets/string.jpg"
+ },
+ {
+  "id": "39",
+  "category": "SINGLE SOUND",
+  "name": "5 JALLIKATTU",
+  "pack": "1 PKT",
+  "mrp": 650.0,
+  "price": 65.0,
+  "img": "assets/string.jpg"
+ },
+ {
+  "id": "40",
+  "category": "SINGLE SOUND",
+  "name": "6 LION",
+  "pack": "1 PKT",
+  "mrp": 840.0,
+  "price": 84.0,
+  "img": "assets/string.jpg"
+ },
+ {
+  "id": "41",
+  "category": "SINGLE SOUND",
+  "name": "BIJILI",
+  "pack": "1 PKT",
+  "mrp": 380.0,
+  "price": 38.0,
+  "img": "assets/string.jpg"
+ },
+ {
+  "id": "42",
+  "category": "ATOM BOMBS",
+  "name": "HYTRO BOMB",
+  "pack": "1 BOX",
+  "mrp": 780.0,
+  "price": 78.0,
+  "img": "assets/bomb.jpg"
+ },
+ {
+  "id": "43",
+  "category": "ATOM BOMBS",
+  "name": "KING OF KING BOMB",
+  "pack": "1 BOX",
+  "mrp": 1200.0,
+  "price": 120.0,
+  "img": "assets/bomb.jpg"
+ },
+ {
+  "id": "44",
+  "category": "ATOM BOMBS",
+  "name": "CLASSIC BOMB",
+  "pack": "1 BOX",
+  "mrp": 1560.0,
+  "price": 156.0,
+  "img": "assets/bomb.jpg"
+ },
+ {
+  "id": "45",
+  "category": "ATOM BOMBS",
+  "name": "DELUXE BULLET",
+  "pack": "1 BOX",
+  "mrp": 540.0,
+  "price": 54.0,
+  "img": "assets/bomb.jpg"
+ },
+ {
+  "id": "46",
+  "category": "ATOM BOMBS",
+  "name": "AK 47",
+  "pack": "1 BOX",
+  "mrp": 1200.0,
+  "price": 120.0,
+  "img": "assets/bomb.jpg"
+ },
+ {
+  "id": "47",
+  "category": "ATOM BOMBS",
+  "name": "DINOSAUR BOMB",
+  "pack": "1 BOX",
+  "mrp": 2640.0,
+  "price": 264.0,
+  "img": "assets/bomb.jpg"
+ },
+ {
+  "id": "48",
+  "category": "ROCKETS",
+  "name": "ROCKET BOMB",
+  "pack": "1 BOX",
+  "mrp": 1020.0,
+  "price": 102.0,
+  "img": "assets/rocket.jpg"
+ },
+ {
+  "id": "49",
+  "category": "ROCKETS",
+  "name": "LUNIK ROCKET",
+  "pack": "1 BOX",
+  "mrp": 1680.0,
+  "price": 168.0,
+  "img": "assets/rocket.jpg"
+ },
+ {
+  "id": "50",
+  "category": "ROCKETS",
+  "name": "WHIZILING ROCKET",
+  "pack": "1 BOX",
+  "mrp": 2640.0,
+  "price": 264.0,
+  "img": "assets/rocket.jpg"
+ },
+ {
+  "id": "51",
+  "category": "TWINKLING STAR",
+  "name": "1.5\" TWINKLING STAR",
+  "pack": "1 BOX",
+  "mrp": 360.0,
+  "price": 36.0,
+  "img": "assets/sparklers.jpg"
+ },
+ {
+  "id": "52",
+  "category": "TWINKLING STAR",
+  "name": "4\" TWINKLING STAR",
+  "pack": "1 BOX",
+  "mrp": 840.0,
+  "price": 84.0,
+  "img": "assets/sparklers.jpg"
+ },
+ {
+  "id": "53",
+  "category": "PEACOCK FANCY",
+  "name": "PEACOCK FEATHERS",
+  "pack": "1 BOX",
+  "mrp": 1320.0,
+  "price": 132.0,
+  "img": "assets/fountain.jpg"
+ },
+ {
+  "id": "54",
+  "category": "PEACOCK FANCY",
+  "name": "PEACOCK SPECIAL",
+  "pack": "1 BOX",
+  "mrp": 1800.0,
+  "price": 180.0,
+  "img": "assets/fountain.jpg"
+ },
+ {
+  "id": "55",
+  "category": "PEACOCK FANCY",
+  "name": "BADA PEACOCK",
+  "pack": "1 BOX",
+  "mrp": 5040.0,
+  "price": 504.0,
+  "img": "assets/fountain.jpg"
+ },
+ {
+  "id": "56",
+  "category": "KIDS FANCY",
+  "name": "PHOTO FLASH (5 PCS)",
+  "pack": "1 BOX",
+  "mrp": 960.0,
+  "price": 96.0,
+  "img": "assets/kids.jpg"
+ },
+ {
+  "id": "57",
+  "category": "KIDS FANCY",
+  "name": "DISCO WHEEL (5 PCS)",
+  "pack": "1 BOX",
+  "mrp": 1020.0,
+  "price": 102.0,
+  "img": "assets/kids.jpg"
+ },
+ {
+  "id": "58",
+  "category": "KIDS FANCY",
+  "name": "TIN BEER SHOWER",
+  "pack": "1 BOX",
+  "mrp": 1140.0,
+  "price": 114.0,
+  "img": "assets/kids.jpg"
+ },
+ {
+  "id": "59",
+  "category": "KIDS FANCY",
+  "name": "FLYING DANCER (10 PCS)",
+  "pack": "1 BOX",
+  "mrp": 1080.0,
+  "price": 108.0,
+  "img": "assets/kids.jpg"
+ },
+ {
+  "id": "60",
+  "category": "KIDS FANCY",
+  "name": "DRONE (5 PCS)",
+  "pack": "1 BOX",
+  "mrp": 1200.0,
+  "price": 120.0,
+  "img": "assets/kids.jpg"
+ },
+ {
+  "id": "61",
+  "category": "KIDS FANCY",
+  "name": "HELLICOPTER (5 PCS)",
+  "pack": "1 BOX",
+  "mrp": 1200.0,
+  "price": 120.0,
+  "img": "assets/kids.jpg"
+ },
+ {
+  "id": "62",
+  "category": "KIDS FANCY",
+  "name": "TOP GUN",
+  "pack": "1 BOX",
+  "mrp": 1200.0,
+  "price": 120.0,
+  "img": "assets/kids.jpg"
+ },
+ {
+  "id": "63",
+  "category": "KIDS FANCY",
+  "name": "PAMBARAM (5 PCS)",
+  "pack": "1 BOX",
+  "mrp": 960.0,
+  "price": 96.0,
+  "img": "assets/kids.jpg"
+ },
+ {
+  "id": "64",
+  "category": "KIDS FANCY",
+  "name": "ROBO KIDS (5 PCS)",
+  "pack": "1 BOX",
+  "mrp": 1620.0,
+  "price": 162.0,
+  "img": "assets/kids.jpg"
+ },
+ {
+  "id": "65",
+  "category": "KIDS FANCY",
+  "name": "PANDA (5 PCS)",
+  "pack": "1 BOX",
+  "mrp": 2880.0,
+  "price": 288.0,
+  "img": "assets/kids.jpg"
+ },
+ {
+  "id": "66",
+  "category": "KIDS FANCY",
+  "name": "TRI COLOR (5 PCS)",
+  "pack": "1 BOX",
+  "mrp": 2640.0,
+  "price": 264.0,
+  "img": "assets/kids.jpg"
+ },
+ {
+  "id": "67",
+  "category": "KIDS FANCY",
+  "name": "GOLDEN DROPS SHOWER (5 PCS)",
+  "pack": "1 BOX",
+  "mrp": 1200.0,
+  "price": 120.0,
+  "img": "assets/kids.jpg"
+ },
+ {
+  "id": "68",
+  "category": "KIDS FANCY",
+  "name": "MONEY BANK",
+  "pack": "1 BOX",
+  "mrp": 1200.0,
+  "price": 120.0,
+  "img": "assets/kids.jpg"
+ },
+ {
+  "id": "69",
+  "category": "WOUNDERFULL FOUNTAINS",
+  "name": "LOLLIPOP FOUNTAIN (2 PCS)",
+  "pack": "1 BOX",
+  "mrp": 2100.0,
+  "price": 210.0,
+  "img": "assets/fountain.jpg"
+ },
+ {
+  "id": "70",
+  "category": "WOUNDERFULL FOUNTAINS",
+  "name": "COCK FIGHT FOUNTAIN (2 PCS)",
+  "pack": "1 BOX",
+  "mrp": 2100.0,
+  "price": 210.0,
+  "img": "assets/fountain.jpg"
+ },
+ {
+  "id": "71",
+  "category": "WOUNDERFULL FOUNTAINS",
+  "name": "ULTRA VOLTAGE FOUNTAIN (2 PCS)",
+  "pack": "1 BOX",
+  "mrp": 2100.0,
+  "price": 210.0,
+  "img": "assets/fountain.jpg"
+ },
+ {
+  "id": "72",
+  "category": "WOUNDERFULL FOUNTAINS",
+  "name": "PRIDE POPCORN FOUNTAIN (2 PCS)",
+  "pack": "1 BOX",
+  "mrp": 2100.0,
+  "price": 210.0,
+  "img": "assets/fountain.jpg"
+ },
+ {
+  "id": "73",
+  "category": "WOUNDERFULL FOUNTAINS",
+  "name": "PEACOCK FOUNTAIN (2 PCS)",
+  "pack": "1 BOX",
+  "mrp": 2100.0,
+  "price": 210.0,
+  "img": "assets/fountain.jpg"
+ },
+ {
+  "id": "74",
+  "category": "WOUNDERFULL FOUNTAINS",
+  "name": "MOJITO FOUNTAIN (2 PCS)",
+  "pack": "1 BOX",
+  "mrp": 2100.0,
+  "price": 210.0,
+  "img": "assets/fountain.jpg"
+ },
+ {
+  "id": "75",
+  "category": "WOUNDERFULL FOUNTAINS",
+  "name": "DR. PEPPER",
+  "pack": "1 BOX",
+  "mrp": 1920.0,
+  "price": 192.0,
+  "img": "assets/fountain.jpg"
+ },
+ {
+  "id": "76",
+  "category": "WOUNDERFULL FOUNTAINS",
+  "name": "BIG BANG RACING",
+  "pack": "1 BOX",
+  "mrp": 1920.0,
+  "price": 192.0,
+  "img": "assets/fountain.jpg"
+ },
+ {
+  "id": "77",
+  "category": "WOUNDERFULL FOUNTAINS",
+  "name": "AZZ MUSIC",
+  "pack": "1 BOX",
+  "mrp": 1920.0,
+  "price": 192.0,
+  "img": "assets/fountain.jpg"
+ },
+ {
+  "id": "78",
+  "category": "WOUNDERFULL FOUNTAINS",
+  "name": "KARAOKE NIGHT",
+  "pack": "1 BOX",
+  "mrp": 1920.0,
+  "price": 192.0,
+  "img": "assets/fountain.jpg"
+ },
+ {
+  "id": "79",
+  "category": "WOUNDERFULL FOUNTAINS",
+  "name": "MIXED FRUITS FOUNTAIN",
+  "pack": "1 BOX",
+  "mrp": 1920.0,
+  "price": 192.0,
+  "img": "assets/fountain.jpg"
+ },
+ {
+  "id": "80",
+  "category": "SPECIAL FANCY",
+  "name": "1000 PIPERS",
+  "pack": "1 BOX",
+  "mrp": 1920.0,
+  "price": 192.0,
+  "img": "assets/fancy.jpg"
+ },
+ {
+  "id": "81",
+  "category": "SPECIAL FANCY",
+  "name": "WIRE CHAKKAR",
+  "pack": "1 BOX",
+  "mrp": 2160.0,
+  "price": 216.0,
+  "img": "assets/fancy.jpg"
+ },
+ {
+  "id": "82",
+  "category": "SPECIAL FANCY",
+  "name": "DANCING UMBERLA",
+  "pack": "1 BOX",
+  "mrp": 2160.0,
+  "price": 216.0,
+  "img": "assets/fancy.jpg"
+ },
+ {
+  "id": "83",
+  "category": "SPECIAL FANCY",
+  "name": "TUNDER STORM",
+  "pack": "1 BOX",
+  "mrp": 2160.0,
+  "price": 216.0,
+  "img": "assets/fancy.jpg"
+ },
+ {
+  "id": "84",
+  "category": "SPECIAL FANCY",
+  "name": "ROSE THUNDER",
+  "pack": "1 BOX",
+  "mrp": 2400.0,
+  "price": 240.0,
+  "img": "assets/fancy.jpg"
+ },
+ {
+  "id": "85",
+  "category": "SPECIAL FANCY",
+  "name": "SIREN (3PCS)",
+  "pack": "1 BOX",
+  "mrp": 2280.0,
+  "price": 228.0,
+  "img": "assets/fancy.jpg"
+ },
+ {
+  "id": "86",
+  "category": "SPECIAL FANCY",
+  "name": "MINI SIREN (5 PCS)",
+  "pack": "1 BOX",
+  "mrp": 2040.0,
+  "price": 204.0,
+  "img": "assets/fancy.jpg"
+ },
+ {
+  "id": "87",
+  "category": "SPECIAL FANCY",
+  "name": "SMOKE",
+  "pack": "1 BOX",
+  "mrp": 1320.0,
+  "price": 132.0,
+  "img": "assets/fancy.jpg"
+ },
+ {
+  "id": "88",
+  "category": "SPECIAL FANCY",
+  "name": "SELFI STICK (3 PCS)",
+  "pack": "1 BOX",
+  "mrp": 1920.0,
+  "price": 192.0,
+  "img": "assets/fancy.jpg"
+ },
+ {
+  "id": "89",
+  "category": "SPECIAL FANCY",
+  "name": "PINK RAIN (5 PCS)",
+  "pack": "1 BOX",
+  "mrp": 1920.0,
+  "price": 192.0,
+  "img": "assets/fancy.jpg"
+ },
+ {
+  "id": "90",
+  "category": "SPECIAL FANCY",
+  "name": "SILVER RAIN (5 PCS)",
+  "pack": "1 BOX",
+  "mrp": 1920.0,
+  "price": 192.0,
+  "img": "assets/fancy.jpg"
+ },
+ {
+  "id": "91",
+  "category": "SPECIAL FANCY",
+  "name": "POWER FULL TORCH (2PCS)",
+  "pack": "1 BOX",
+  "mrp": 1920.0,
+  "price": 192.0,
+  "img": "assets/fancy.jpg"
+ },
+ {
+  "id": "92",
+  "category": "SPECIAL FANCY",
+  "name": "DANCING SHOOTER",
+  "pack": "1 BOX",
+  "mrp": 2880.0,
+  "price": 288.0,
+  "img": "assets/fancy.jpg"
+ },
+ {
+  "id": "93",
+  "category": "SPECIAL FANCY",
+  "name": "DORA SINGER",
+  "pack": "1 BOX",
+  "mrp": 1920.0,
+  "price": 192.0,
+  "img": "assets/fancy.jpg"
+ },
+ {
+  "id": "94",
+  "category": "KIDS FAVORITES",
+  "name": "SNAKE TABLET",
+  "pack": "1 BOX",
+  "mrp": 600.0,
+  "price": 60.0,
+  "img": "assets/kids.jpg"
+ },
+ {
+  "id": "95",
+  "category": "KIDS FAVORITES",
+  "name": "KITKAT",
+  "pack": "1 BOX",
+  "mrp": 480.0,
+  "price": 48.0,
+  "img": "assets/kids.jpg"
+ },
+ {
+  "id": "96",
+  "category": "KIDS FAVORITES",
+  "name": "MAGIC STONE",
+  "pack": "1 BOX",
+  "mrp": 420.0,
+  "price": 42.0,
+  "img": "assets/kids.jpg"
+ },
+ {
+  "id": "97",
+  "category": "KIDS FAVORITES",
+  "name": "CARTOON",
+  "pack": "1 BOX",
+  "mrp": 480.0,
+  "price": 48.0,
+  "img": "assets/kids.jpg"
+ },
+ {
+  "id": "98",
+  "category": "KIDS FAVORITES",
+  "name": "SNAKE CARTOON",
+  "pack": "1 BOX",
+  "mrp": 600.0,
+  "price": 60.0,
+  "img": "assets/kids.jpg"
+ },
+ {
+  "id": "99",
+  "category": "KIDS FAVORITES",
+  "name": "ROLL CAP",
+  "pack": "1 BOX",
+  "mrp": 600.0,
+  "price": 60.0,
+  "img": "assets/kids.jpg"
+ },
+ {
+  "id": "100",
+  "category": "KIDS FAVORITES",
+  "name": "GUN",
+  "pack": "1 PCS",
+  "mrp": 600.0,
+  "price": 60.0,
+  "img": "assets/kids.jpg"
+ },
+ {
+  "id": "101",
+  "category": "KIDS FAVORITES",
+  "name": "BULLET(GUN)",
+  "pack": "1 PKT",
+  "mrp": 120.0,
+  "price": 12.0,
+  "img": "assets/kids.jpg"
+ },
+ {
+  "id": "102",
+  "category": "KIDS FAVORITES",
+  "name": "CRACKLING VEL",
+  "pack": "1 BOX",
+  "mrp": 2400.0,
+  "price": 240.0,
+  "img": "assets/kids.jpg"
+ },
+ {
+  "id": "103",
+  "category": "KIDS FAVORITES",
+  "name": "5 MAN ARMY",
+  "pack": "1 BOX",
+  "mrp": 840.0,
+  "price": 84.0,
+  "img": "assets/kids.jpg"
+ },
+ {
+  "id": "104",
+  "category": "MEGA BOMB",
+  "name": "250G BOMB",
+  "pack": "1 BOX",
+  "mrp": 540.0,
+  "price": 54.0,
+  "img": "assets/bomb.jpg"
+ },
+ {
+  "id": "105",
+  "category": "MEGA BOMB",
+  "name": "500G BOMB",
+  "pack": "1 BOX",
+  "mrp": 1080.0,
+  "price": 108.0,
+  "img": "assets/bomb.jpg"
+ },
+ {
+  "id": "106",
+  "category": "MEGA BOMB",
+  "name": "1KG BOMB",
+  "pack": "1 BOX",
+  "mrp": 2040.0,
+  "price": 204.0,
+  "img": "assets/bomb.jpg"
+ },
+ {
+  "id": "107",
+  "category": "MEGA BOMB",
+  "name": "GOLD WAR",
+  "pack": "1 BOX",
+  "mrp": 2160.0,
+  "price": 216.0,
+  "img": "assets/bomb.jpg"
+ },
+ {
+  "id": "108",
+  "category": "MULTI SOUND CRACKERS (MOTHERS)",
+  "name": "56 GAINT",
+  "pack": "1 BOX",
+  "mrp": 580.0,
+  "price": 58.0,
+  "img": "assets/string.jpg"
+ },
+ {
+  "id": "109",
+  "category": "MULTI SOUND CRACKERS (MOTHERS)",
+  "name": "50 DELUXE",
+  "pack": "1 BOX",
+  "mrp": 1440.0,
+  "price": 144.0,
+  "img": "assets/string.jpg"
+ },
+ {
+  "id": "110",
+  "category": "MULTI SOUND CRACKERS (MOTHERS)",
+  "name": "100 SOUND CRACKERS",
+  "pack": "1 BOX",
+  "mrp": 540.0,
+  "price": 54.0,
+  "img": "assets/string.jpg"
+ },
+ {
+  "id": "111",
+  "category": "MULTI SOUND CRACKERS (MOTHERS)",
+  "name": "200 SOUND CRACKERS",
+  "pack": "1 BOX",
+  "mrp": 1080.0,
+  "price": 108.0,
+  "img": "assets/string.jpg"
+ },
+ {
+  "id": "112",
+  "category": "MULTI SOUND CRACKERS (MOTHERS)",
+  "name": "600 SOUND CRACKERS",
+  "pack": "1 BOX",
+  "mrp": 2520.0,
+  "price": 252.0,
+  "img": "assets/string.jpg"
+ },
+ {
+  "id": "113",
+  "category": "MULTI SOUND CRACKERS (MOTHERS)",
+  "name": "1000 SOUND CRACKERS",
+  "pack": "1 BOX",
+  "mrp": 4200.0,
+  "price": 420.0,
+  "img": "assets/string.jpg"
+ },
+ {
+  "id": "114",
+  "category": "MULTI SOUND CRACKERS (MOTHERS)",
+  "name": "2000 SOUND CRACKERS",
+  "pack": "1 BOX",
+  "mrp": 8400.0,
+  "price": 840.0,
+  "img": "assets/string.jpg"
+ },
+ {
+  "id": "115",
+  "category": "MULTI SOUND CRACKERS (MOTHERS)",
+  "name": "5000 SOUND CR4ACKERS",
+  "pack": "1 BOX",
+  "mrp": 20400.0,
+  "price": 2040.0,
+  "img": "assets/string.jpg"
+ },
+ {
+  "id": "116",
+  "category": "MULTI SOUND CRACKERS (MOTHERS)",
+  "name": "10,000 SOUND CRACKERS",
+  "pack": "1 BOX",
+  "mrp": 40800.0,
+  "price": 4080.0,
+  "img": "assets/string.jpg"
+ },
+ {
+  "id": "117",
+  "category": "SINGLE SKY SHOT",
+  "name": "2\"PIPE (SINGLE)",
+  "pack": "1 BOX",
+  "mrp": 1620.0,
+  "price": 162.0,
+  "img": "assets/skyshot.jpg"
+ },
+ {
+  "id": "118",
+  "category": "SINGLE SKY SHOT",
+  "name": "2\"PIPE (3 PCS)",
+  "pack": "1 BOX",
+  "mrp": 3600.0,
+  "price": 360.0,
+  "img": "assets/skyshot.jpg"
+ },
+ {
+  "id": "119",
+  "category": "SINGLE SKY SHOT",
+  "name": "2.5\" PIPE (2PCS)",
+  "pack": "1 BOX",
+  "mrp": 3600.0,
+  "price": 360.0,
+  "img": "assets/skyshot.jpg"
+ },
+ {
+  "id": "120",
+  "category": "SINGLE SKY SHOT",
+  "name": "2.5\"PIPE (3-STEP)",
+  "pack": "1 BOX",
+  "mrp": 4080.0,
+  "price": 408.0,
+  "img": "assets/skyshot.jpg"
+ },
+ {
+  "id": "121",
+  "category": "SINGLE SKY SHOT",
+  "name": "3\" PIPE(SINGLE)",
+  "pack": "1 BOX",
+  "mrp": 3480.0,
+  "price": 348.0,
+  "img": "assets/skyshot.jpg"
+ },
+ {
+  "id": "122",
+  "category": "SINGLE SKY SHOT",
+  "name": "3.5\"PIPE (SINGLE)",
+  "pack": "1 BOX",
+  "mrp": 3840.0,
+  "price": 384.0,
+  "img": "assets/skyshot.jpg"
+ },
+ {
+  "id": "123",
+  "category": "SINGLE SKY SHOT",
+  "name": "4\" PIPE (SINGLE)",
+  "pack": "1 BOX",
+  "mrp": 5040.0,
+  "price": 504.0,
+  "img": "assets/skyshot.jpg"
+ },
+ {
+  "id": "124",
+  "category": "SINGLE SKY SHOT",
+  "name": "4\"DOUBLE BALL (SINGLE)",
+  "pack": "1 BOX",
+  "mrp": 6000.0,
+  "price": 600.0,
+  "img": "assets/skyshot.jpg"
+ },
+ {
+  "id": "125",
+  "category": "FANTACY SHOTS",
+  "name": "FANTACY SKY SHOT",
+  "pack": "1 BOX",
+  "mrp": 2160.0,
+  "price": 216.0,
+  "img": "assets/cake.jpg"
+ },
+ {
+  "id": "126",
+  "category": "FANTACY SHOTS",
+  "name": "FANTACY SCOOP",
+  "pack": "1 BOX",
+  "mrp": 1560.0,
+  "price": 156.0,
+  "img": "assets/cake.jpg"
+ },
+ {
+  "id": "127",
+  "category": "FANTACY SHOTS",
+  "name": "7UP MAGIC STAR",
+  "pack": "1 BOX",
+  "mrp": 1440.0,
+  "price": 144.0,
+  "img": "assets/cake.jpg"
+ },
+ {
+  "id": "128",
+  "category": "COLOUR SHOT RIDER",
+  "name": "12 COLOUR RIDER",
+  "pack": "1 BOX",
+  "mrp": 1800.0,
+  "price": 180.0,
+  "img": "assets/cake.jpg"
+ },
+ {
+  "id": "129",
+  "category": "COLOUR SHOT RIDER",
+  "name": "12 CRACKLING RIDER",
+  "pack": "1 BOX",
+  "mrp": 2040.0,
+  "price": 204.0,
+  "img": "assets/cake.jpg"
+ },
+ {
+  "id": "130",
+  "category": "COLOUR SHOT RIDER",
+  "name": "25 RIDER",
+  "pack": "1 BOX",
+  "mrp": 2400.0,
+  "price": 240.0,
+  "img": "assets/cake.jpg"
+ },
+ {
+  "id": "131",
+  "category": "MULTI COLOUR SHY SHOT",
+  "name": "15 SHOT DESIRE",
+  "pack": "1 BOX",
+  "mrp": 3480.0,
+  "price": 348.0,
+  "img": "assets/cake.jpg"
+ },
+ {
+  "id": "132",
+  "category": "MULTI COLOUR SHY SHOT",
+  "name": "16 SHOT EXPRESS",
+  "pack": "1 BOX",
+  "mrp": 3600.0,
+  "price": 360.0,
+  "img": "assets/cake.jpg"
+ },
+ {
+  "id": "133",
+  "category": "MULTI COLOUR SHY SHOT",
+  "name": "10 HAND SHORT",
+  "pack": "1 BOX",
+  "mrp": 5400.0,
+  "price": 540.0,
+  "img": "assets/cake.jpg"
+ },
+ {
+  "id": "134",
+  "category": "MULTI COLOUR SHY SHOT",
+  "name": "30 SHOT DIGITAL",
+  "pack": "1 BOX",
+  "mrp": 5400.0,
+  "price": 540.0,
+  "img": "assets/cake.jpg"
+ },
+ {
+  "id": "135",
+  "category": "MULTI COLOUR SHY SHOT",
+  "name": "30 SHOT SPACE X",
+  "pack": "1 BOX",
+  "mrp": 5640.0,
+  "price": 564.0,
+  "img": "assets/cake.jpg"
+ },
+ {
+  "id": "136",
+  "category": "MULTI COLOUR SHY SHOT",
+  "name": "50 SHOT BATTLE",
+  "pack": "1 BOX",
+  "mrp": 10200.0,
+  "price": 1020.0,
+  "img": "assets/cake.jpg"
+ },
+ {
+  "id": "137",
+  "category": "MULTI COLOUR SHY SHOT",
+  "name": "60 SHOT MASTIC SPECIAL",
+  "pack": "1 BOX",
+  "mrp": 11400.0,
+  "price": 1140.0,
+  "img": "assets/cake.jpg"
+ },
+ {
+  "id": "138",
+  "category": "MULTI COLOUR SHY SHOT",
+  "name": "80 SHOT MAJA SPECIAL",
+  "pack": "1 BOX",
+  "mrp": 15600.0,
+  "price": 1560.0,
+  "img": "assets/cake.jpg"
+ },
+ {
+  "id": "139",
+  "category": "MULTI COLOUR SHY SHOT",
+  "name": "100 SHOT SHAADI KA GIFT SPECIAL",
+  "pack": "1 BOX",
+  "mrp": 17760.0,
+  "price": 1776.0,
+  "img": "assets/cake.jpg"
+ },
+ {
+  "id": "140",
+  "category": "MULTI COLOUR SHY SHOT",
+  "name": "200 SHOT ACTION SPECIAL",
+  "pack": "1 BOX",
+  "mrp": 35400.0,
+  "price": 3540.0,
+  "img": "assets/cake.jpg"
+ },
+ {
+  "id": "141",
+  "category": "MULTI COLOUR SHY SHOT",
+  "name": "5 X 10 RAINBOW SKY SHORT",
+  "pack": "1 BOX",
+  "mrp": 30000.0,
+  "price": 3000.0,
+  "img": "assets/cake.jpg"
+ },
+ {
+  "id": "142",
+  "category": "GIFT BOX",
+  "name": "21 Items",
+  "pack": "1 BOX",
+  "mrp": 1925.0,
+  "price": 385.0,
+  "img": "assets/giftbox.jpg"
+ },
+ {
+  "id": "143",
+  "category": "GIFT BOX",
+  "name": "30 Items",
+  "pack": "1 BOX",
+  "mrp": 3300.0,
+  "price": 660.0,
+  "img": "assets/giftbox.jpg"
+ },
+ {
+  "id": "144",
+  "category": "GIFT BOX",
+  "name": "36 Items",
+  "pack": "1 BOX",
+  "mrp": 3575.0,
+  "price": 715.0,
+  "img": "assets/giftbox.jpg"
+ },
+ {
+  "id": "145",
+  "category": "GIFT BOX",
+  "name": "42 Items",
+  "pack": "1 BOX",
+  "mrp": 4675.0,
+  "price": 935.0,
+  "img": "assets/giftbox.jpg"
+ },
+ {
+  "id": "146",
+  "category": "GIFT BOX",
+  "name": "50 Items",
+  "pack": "1 BOX",
+  "mrp": 5500.0,
+  "price": 1100.0,
+  "img": "assets/giftbox.jpg"
+ }
+]
