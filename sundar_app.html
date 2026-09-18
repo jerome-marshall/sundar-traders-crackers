@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Sundar Traders, Sivakasi</title>
+  <style>
+    :root {
+      --bg: #f6f2fb;
+      --card: #ffffff;
+      --text: #2a2140;
+      --muted: #6b5d82;
+      --line: #e4d8f2;
+      --accent: #6d28d9;
+      --accent-dark: #5b21b6;
+      --header: #5b21b6;
+      --price: #1a7f45;
+      --danger: #c0392b;
+      --chip: #efe7fa;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.45;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding-bottom: 88px;
+    }
+    header.hero {
+      position: relative;
+      overflow: hidden;
+      background-color: var(--header);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Cg fill='none' stroke='%23fff' stroke-opacity='0.22' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M38 92v40'/%3E%3Cpath d='M38 92l-11-8M38 92l11-8M38 92l-13 2M38 92l13 2M38 92v-16M38 92l-8-13M38 92l8-13'/%3E%3Ccircle cx='38' cy='70' r='2.6' fill='%23fff' fill-opacity='0.25' stroke='none'/%3E%3Cpath d='M100 40l9 24h-18z'/%3E%3Cpath d='M100 64v18'/%3E%3Cpath d='M94 84l-6 11M100 84v13M106 84l6 11'/%3E%3Cpath d='M148 120h18l-3 16h-12z'/%3E%3Cpath d='M157 120v-12'/%3E%3Cpath d='M157 96c-11-8-7-24 0-24s11 16 0 24'/%3E%3Cpath d='M147 94q10-18 20 0'/%3E%3Ccircle cx='72' cy='158' r='11'/%3E%3Ccircle cx='72' cy='158' r='4.5'/%3E%3Cpath d='M72 145v6M72 165v6M59 158h6M79 158h6'/%3E%3Cpath d='M168 36l2.2 6.2 6.2 2.2-6.2 2.2-2.2 6.2-2.2-6.2-6.2-2.2 6.2-2.2z' fill='%23fff' fill-opacity='0.18'/%3E%3Cpath d='M18 38l2 5.4 5.4 2-5.4 2-2 5.4-2-5.4-5.4-2 5.4-2z' fill='%23fff' fill-opacity='0.18'/%3E%3C/g%3E%3C/svg%3E");
+      background-size: 180px 180px;
+      color: #fff;
+      text-align: center;
+      padding: 28px 20px 24px;
+    }
+    header.hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(46, 16, 101, 0.28), rgba(46, 16, 101, 0.12));
+      pointer-events: none;
+    }
+    .hero-inner { position: relative; z-index: 1; max-width: 880px; margin: 0 auto; }
+    .kicker {
+      margin: 0 0 8px;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.9;
+    }
+    h1, h2 {
+      font-family: inherit;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    h1 {
+      font-size: 1.7rem;
+      margin: 0 0 10px;
+      color: #fff;
+    }
+    .tagline {
+      color: rgba(255, 255, 255, 0.95);
+      margin: 0 auto;
+      font-size: 1rem;
+      max-width: 36rem;
+    }
+    .offer-pill {
+      display: inline-block;
+      margin-top: 12px;
+      background: #fff;
+      color: var(--accent-dark);
+      font-weight: 700;
+      font-size: 0.85rem;
+      border-radius: 999px;
+      padding: 6px 12px;
+    }
+    .wa-header {
+      display: inline-block;
+      margin-top: 14px;
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      background: #128c4b;
+      border-radius: 999px;
+      padding: 8px 14px;
+    }
+    .print-rate {
+      display: inline-block;
+      margin: 14px 0 0;
+      padding: 0;
+      background: transparent;
+      color: rgba(255, 255, 255, 0.9);
+      border: 0;
+      text-decoration: underline;
+      font: inherit;
+      cursor: pointer;
+    }
+    .success .print-rate { color: var(--muted); }
+    .demo-banner {
+      display: none;
+      max-width: 880px;
+      margin: 12px auto 0;
+      background: #fff8e8;
+      border: 1px solid #ead9a8;
+      color: #5c4a12;
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-size: 0.88rem;
+    }
+    .wrap { max-width: 880px; margin: 0 auto; padding: 8px 16px 28px; }
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      background: var(--bg);
+      padding: 10px 0 8px;
+    }
+    .search {
+      width: 100%;
+      background: var(--card);
+      border: 1px solid var(--line);
+      color: var(--text);
+      border-radius: 10px;
+      padding: 12px 14px;
+      font: inherit;
+    }
+    .search:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+    .chips {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 10px 0 4px;
+      -webkit-overflow-scrolling: touch;
+    }
+    .chip {
+      border: 1px solid var(--line);
+      background: var(--card);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 7px 12px;
+      font: inherit;
+      font-size: 0.88rem;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+    .chip.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .cat-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--accent-dark);
+      margin: 18px 0 8px;
+    }
+    .list { display: flex; flex-direction: column; gap: 8px; }
+    .item {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px 14px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px 12px;
+      align-items: center;
+    }
+    .item .id {
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+    .item .name {
+      font-weight: 600;
+      font-size: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px 8px;
+    }
+    .pack {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent-dark);
+      background: var(--chip);
+      border-radius: 999px;
+      padding: 2px 8px;
+      white-space: nowrap;
+    }
+    .prices { color: var(--muted); font-size: 0.9rem; }
+    .prices s { margin-right: 8px; }
+    .now { color: var(--price); font-weight: 700; }
+    .qty {
+      display: flex;
+      align-items: center;
+      background: var(--bg);
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      overflow: hidden;
+    }
+    .qty button {
+      width: 40px;
+      height: 40px;
+      border: 0;
+      background: transparent;
+      color: var(--accent-dark);
+      font-size: 1.15rem;
+      cursor: pointer;
+    }
+    .qty input {
+      width: 40px;
+      height: 40px;
+      border: 0;
+      background: transparent;
+      color: var(--text);
+      text-align: center;
+      font: inherit;
+      font-weight: 600;
+    }
+    .net {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      color: var(--muted);
+      font-size: 0.88rem;
+      border-top: 1px solid var(--line);
+      padding-top: 8px;
+    }
+    .item[data-qty="0"] .net { display: none; }
+    .net strong { color: var(--text); min-width: 4.5em; text-align: right; }
+    .checkout {
+      margin-top: 28px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 18px;
+    }
+    .checkout h2 {
+      font-size: 1.15rem;
+      margin: 0 0 8px;
+      color: var(--text);
+    }
+    .checkout .tagline { color: var(--muted); max-width: none; }
+    label { display: block; font-size: 0.9rem; color: var(--text); margin: 12px 0 6px; }
+    input[type="text"], input[type="tel"], textarea {
+      width: 100%;
+      background: #fff;
+      border: 1px solid var(--line);
+      color: var(--text);
+      border-radius: 8px;
+      padding: 11px 12px;
+      font: inherit;
+    }
+    input[type="text"]:focus, input[type="tel"]:focus, textarea:focus {
+      outline: 2px solid var(--accent);
+      outline-offset: 1px;
+    }
+    textarea { min-height: 84px; resize: vertical; }
+    .req { color: var(--danger); }
+    .error { color: var(--danger); font-size: 0.88rem; min-height: 1.2em; margin-top: 8px; }
+    .summary { margin-top: 14px; background: var(--bg); border-radius: 8px; padding: 12px; }
+    .summary row, .sum-line { display: flex; justify-content: space-between; margin: 4px 0; }
+    .summary .grand { font-size: 1.1rem; color: var(--accent-dark); font-weight: 700; margin-top: 8px; }
+    .courier-note {
+      margin: 12px 0 0;
+      font-weight: 700;
+      color: var(--text);
+      font-size: 1rem;
+    }
+    .submit {
+      background: var(--accent);
+      color: #fff;
+      border: 0;
+      border-radius: 8px;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 14px;
+      padding: 13px;
+    }
+    .submit:disabled { opacity: 0.55; cursor: not-allowed; }
+    .bar {
+      position: fixed;
+      left: 0; right: 0; bottom: 0;
+      background: #fff;
+      border-top: 1px solid var(--line);
+      padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .bar #barCount { color: var(--muted); }
+    .bar .tot { font-weight: 700; color: var(--accent-dark); }
+    .success { display: none; text-align: left; padding: 32px 16px; }
+    .success-top {
+      display: flex;
+      justify-content: flex-end;
+      margin: 0 0 16px;
+    }
+    .home-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      padding: 0;
+      border: 0;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      cursor: pointer;
+    }
+    .home-btn svg { display: block; width: 22px; height: 22px; fill: currentColor; }
+    .success h2 { margin: 0 0 8px; color: var(--text); }
+    .oid { font-size: 1.25rem; font-weight: 700; margin: 8px 0; color: var(--accent-dark); }
+    .wa {
+      display: inline-block;
+      margin-top: 12px;
+      background: #128c4b;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 12px 16px;
+      border-radius: 8px;
+    }
+    .empty { color: var(--muted); text-align: center; padding: 24px; }
+    @media (min-width: 720px) {
+      header.hero { padding: 36px 24px 28px; }
+      h1 { font-size: 2.2rem; }
+      .wrap { padding-left: 24px; padding-right: 24px; }
+      .item {
+        grid-template-columns: 1fr auto auto;
+        align-items: center;
+      }
+      .net {
+        grid-column: auto;
+        border: 0;
+        padding: 0;
+        min-width: 132px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        gap: 20px;
+        text-align: right;
+      }
+      .item[data-qty="0"] .net { display: none; }
+    }
+    @media print {
+      body { background: #fff; color: #111; padding: 0; }
+      header.hero {
+        background: #fff;
+        background-image: none;
+        color: #111;
+        padding: 0 0 12px;
+        text-align: left;
+      }
+      header.hero::before { display: none; }
+      h1, .tagline, .cat-title, .wa-header { color: #111; }
+      .wa-header { background: none; }
+      .kicker, .offer-pill, .toolbar, .chips, .checkout, .bar, .demo-banner, .print-rate, .home-btn { display: none !important; }
+      .item { border: 1px solid #ccc; background: #fff; color: #111; break-inside: avoid; }
+      .item .name, .now, .net strong { color: #111; }
+      body.print-catalog .qty, body.print-catalog .net { display: none !important; }
+      body.receipt #shopView, body.receipt .bar { display: none !important; }
+      body.receipt .success { display: block !important; color: #111; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <p class="kicker">Diwali crackers</p>
+      <h1 id="shopName">Sundar Traders, Sivakasi</h1>
+      <p class="tagline" id="tagline">Top Quality Crackers at 90% Discount from the manufacturers directly.</p>
+      <div class="offer-pill">Upto 90% off on every item</div>
+      <div>
+        <a class="wa-header" href="https://wa.me/919600219655" target="_blank" rel="noopener">For more details, Whatsapp 919600219655</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap" id="shopView">
+    <div class="demo-banner" id="demoBanner">
+      Preview mode. Orders are not saved to Google Sheets yet.
+      Open <strong>README.md</strong> and follow the 8 setup steps (takes about 10 minutes).
+    </div>
+    <div class="toolbar">
+      <input class="search" id="search" type="search" placeholder="Search crackers" />
+      <div class="chips" id="chips"></div>
+    </div>
+    <div id="catalog"></div>
+
+    <section class="checkout" id="checkout">
+      <h2>Your details</h2>
+      <p class="tagline">Name, address and mobile are required so we can confirm the order.</p>
+      <label>Your name <span class="req">*</span>
+        <input id="custName" type="text" autocomplete="name" required />
+      </label>
+      <label>Mobile number <span class="req">*</span>
+        <input id="custPhone" type="tel" inputmode="numeric" autocomplete="tel" maxlength="10" placeholder="10-digit number" />
+      </label>
+      <label>Address <span class="req">*</span>
+        <textarea id="custAddress" autocomplete="street-address" placeholder="House / street, area, city, pincode"></textarea>
+      </label>
+      <label>Notes (optional)
+        <textarea id="custNotes" placeholder="Preferred time, landmarks, etc."></textarea>
+      </label>
+      <div class="summary" id="orderSummary"></div>
+      <p class="courier-note">Courier charges extra based on the location.</p>
+      <div class="error" id="formError"></div>
+      <button class="submit" id="submitBtn" type="button">Place order</button>
+    </section>
+  </main>
+
+  <section class="success wrap" id="successView">
+    <div class="success-top">
+      <button class="home-btn" type="button" id="homeBtn" aria-label="Home">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 3.2 3.5 10.2c-.3.3-.4.7-.3 1.1.1.4.4.7.8.8h1.2V20c0 .6.4 1 1 1h4.2v-5.2h3.2V21h4.2c.6 0 1-.4 1-1v-7.9h1.2c.4 0 .7-.3.8-.8.1-.4 0-.8-.3-1.1L12 3.2z"/>
+        </svg>
+      </button>
+    </div>
+    <h2>Order received</h2>
+    <p>Thank you. We will call you to confirm.</p>
+    <div class="oid" id="successId"></div>
+    <div id="successBody"></div>
+    <p><a class="wa" id="waLink" href="#" target="_blank" rel="noopener" hidden>Send this order on WhatsApp</a></p>
+    <p><button class="print-rate" type="button" id="printOrder">Print receipt</button></p>
+  </section>
+
+  <div class="bar" id="bar">
+    <div id="barCount">0 items</div>
+    <div class="tot" id="barTotal">\\u20b90</div>
+  </div>
+
+  <script>
+    var SAMPLE_PRODUCTS = [
+      { id: '1', category: 'SPARKLERS', name: '7 CM MIXED ELECTRIC', item: '1 BOX', actual: 160, discount: 16 },
+      { id: '2', category: 'SPARKLERS', name: '7 CM MIXED COLOURS', item: '1 BOX', actual: 180, discount: 18 },
+      { id: '3', category: 'SPARKLERS', name: '10 CM ELECTRIC', item: '1 BOX', actual: 200, discount: 20 },
+      { id: '4', category: 'SPARKLERS', name: '10 CM COLOUR', item: '1 BOX', actual: 230, discount: 23 },
+      { id: '5', category: 'SPARKLERS', name: '10 CM GREEN', item: '1 BOX', actual: 240, discount: 24 },
+      { id: '6', category: 'SPARKLERS', name: '10 CM RED', item: '1 BOX', actual: 260, discount: 26 },
+      { id: '7', category: 'SPARKLERS', name: '12 CM ELECTRIC', item: '1 BOX', actual: 290, discount: 29 },
+      { id: '8', category: 'SPARKLERS', name: '12 CM COLOUR', item: '1 BOX', actual: 310, discount: 31 },
+      { id: '9', category: 'SPARKLERS', name: '12 CM GREEN', item: '1 BOX', actual: 340, discount: 34 },
+      { id: '10', category: 'SPARKLERS', name: '12 CM RED', item: '1 BOX', actual: 360, discount: 36 },
+      { id: '11', category: 'SPARKLERS', name: '15 CM ELECTRIC', item: '1 BOX', actual: 480, discount: 48 },
+      { id: '12', category: 'SPARKLERS', name: '15 CM COLOUR', item: '1 BOX', actual: 500, discount: 50 },
+      { id: '13', category: 'SPARKLERS', name: '15 CM GREEN', item: '1 BOX', actual: 530, discount: 53 },
+      { id: '14', category: 'SPARKLERS', name: '15 CM RED', item: '1 BOX', actual: 580, discount: 58 },
+      { id: '15', category: 'SPARKLERS', name: '30 CM ELECTRIC', item: '1 BOX', actual: 480, discount: 48 },
+      { id: '16', category: 'SPARKLERS', name: '30 CM COLOUR', item: '1 BOX', actual: 500, discount: 50 },
+      { id: '17', category: 'SPARKLERS', name: '30 CM GREEN', item: '1 BOX', actual: 530, discount: 53 },
+      { id: '18', category: 'SPARKLERS', name: '30 CM RED', item: '1 BOX', actual: 580, discount: 58 },
+      { id: '19', category: 'SPARKLERS', name: '50 CM ELECTRIC', item: '1 BOX', actual: 2040, discount: 204 },
+      { id: '20', category: 'SPARKLERS', name: '50 CM CRACKLING', item: '1 BOX', actual: 2280, discount: 228 },
+      { id: '21', category: 'FLOWER POTS', name: 'FLOWER POTS SMALL', item: '1 BOX', actual: 540, discount: 54 },
+      { id: '22', category: 'FLOWER POTS', name: 'FLOWER POTS BIG', item: '1 BOX', actual: 900, discount: 90 },
+      { id: '23', category: 'FLOWER POTS', name: 'FLOWER POTS SPECIAL', item: '1 BOX', actual: 1140, discount: 114 },
+      { id: '24', category: 'FLOWER POTS', name: 'FLOWER POTS ASOKA', item: '1 BOX', actual: 1680, discount: 168 },
+      { id: '25', category: 'FLOWER POTS', name: 'FLOWER PORT SUPER DELUX (5 PCS)', item: '1 BOX', actual: 2280, discount: 228 },
+      { id: '26', category: 'FLOWER POTS', name: 'COLOUR KOTI', item: '1 BOX', actual: 2520, discount: 252 },
+      { id: '27', category: 'GROUND CHAKKAR', name: 'GUOUND CHAKKAR SMALL', item: '1 BOX', actual: 540, discount: 54 },
+      { id: '28', category: 'GROUND CHAKKAR', name: 'GUOUND CHAKKAR BIG', item: '1 BOX', actual: 1140, discount: 114 },
+      { id: '29', category: 'GROUND CHAKKAR', name: 'GROUND CHAKKAR SPECIAL', item: '1 BOX', actual: 900, discount: 90 },
+      { id: '30', category: 'GROUND CHAKKAR', name: 'GUOUND CHAKKAR ASHOKA', item: '1 BOX', actual: 840, discount: 84 },
+      { id: '31', category: 'GROUND CHAKKAR', name: 'GUOUND CHAKKAR DELUXE', item: '1 BOX', actual: 1620, discount: 162 },
+      { id: '32', category: 'SINGLE SOUND', name: '2.75 KURUVI', item: '1 PKT', actual: 120, discount: 12 },
+      { id: '33', category: 'SINGLE SOUND', name: '3.5 LAKCHΜΙ', item: '1 PKT', actual: 190, discount: 19 },
+      { id: '34', category: 'SINGLE SOUND', name: '4 LAKSHMI', item: '1 PKT', actual: 290, discount: 29 },
+      { id: '35', category: 'SINGLE SOUND', name: '4 DELUX LAKSHMI', item: '1 PKT', actual: 380, discount: 38 },
+      { id: '36', category: 'SINGLE SOUND', name: '4 GOLD LAKSHMI', item: '1 PKT', actual: 420, discount: 42 },
+      { id: '37', category: 'SINGLE SOUND', name: '4 HULK', item: '1 PKT', actual: 420, discount: 42 },
+      { id: '38', category: 'SINGLE SOUND', name: '4.5 BAHUBALI', item: '1 PKT', actual: 580, discount: 58 },
+      { id: '39', category: 'SINGLE SOUND', name: '5 JALLIKATTU', item: '1 PKT', actual: 650, discount: 65 },
+      { id: '40', category: 'SINGLE SOUND', name: '6 LION', item: '1 PKT', actual: 840, discount: 84 },
+      { id: '41', category: 'SINGLE SOUND', name: 'BIJILI', item: '1 PKT', actual: 380, discount: 38 },
+      { id: '42', category: 'ATOM BOMBS', name: 'HYTRO BOMB', item: '1 BOX', actual: 780, discount: 78 },
+      { id: '43', category: 'ATOM BOMBS', name: 'KING OF KING BOMB', item: '1 BOX', actual: 1200, discount: 120 },
+      { id: '44', category: 'ATOM BOMBS', name: 'CLASSIC BOMB', item: '1 BOX', actual: 1560, discount: 156 },
+      { id: '45', category: 'ATOM BOMBS', name: 'DELUXE BULLET', item: '1 BOX', actual: 540, discount: 54 },
+      { id: '46', category: 'ATOM BOMBS', name: 'AK 47', item: '1 BOX', actual: 1200, discount: 120 },
+      { id: '47', category: 'ATOM BOMBS', name: 'DINOSAUR BOMB', item: '1 BOX', actual: 2640, discount: 264 },
+      { id: '48', category: 'ROCKETS', name: 'ROCKET BOMB', item: '1 BOX', actual: 1020, discount: 102 },
+      { id: '49', category: 'ROCKETS', name: 'LUNIK ROCKET', item: '1 BOX', actual: 1680, discount: 168 },
+      { id: '50', category: 'ROCKETS', name: 'WHIZILING ROCKET', item: '1 BOX', actual: 2640, discount: 264 },
+      { id: '51', category: 'TWINKLING STAR', name: '1.5" TWINKLING STAR', item: '1 BOX', actual: 360, discount: 36 },
+      { id: '52', category: 'TWINKLING STAR', name: '4" TWINKLING STAR', item: '1 BOX', actual: 840, discount: 84 },
+      { id: '53', category: 'PEACOCK FANCY', name: 'PEACOCK FEATHERS', item: '1 BOX', actual: 1320, discount: 132 },
+      { id: '54', category: 'PEACOCK FANCY', name: 'PEACOCK SPECIAL', item: '1 BOX', actual: 1800, discount: 180 },
+      { id: '55', category: 'PEACOCK FANCY', name: 'BADA PEACOCK', item: '1 BOX', actual: 5040, discount: 504 },
+      { id: '56', category: 'KIDS FANCY', name: 'PHOTO FLASH (5 PCS)', item: '1 BOX', actual: 960, discount: 96 },
+      { id: '57', category: 'KIDS FANCY', name: 'DISCO WHEEL (5 PCS)', item: '1 BOX', actual: 1020, discount: 102 },
+      { id: '58', category: 'KIDS FANCY', name: 'TIN BEER SHOWER', item: '1 BOX', actual: 1140, discount: 114 },
+      { id: '59', category: 'KIDS FANCY', name: 'FLYING DANCER (10 PCS)', item: '1 BOX', actual: 1080, discount: 108 },
+      { id: '60', category: 'KIDS FANCY', name: 'DRONE (5 PCS)', item: '1 BOX', actual: 1200, discount: 120 },
+      { id: '61', category: 'KIDS FANCY', name: 'HELLICOPTER (5 PCS)', item: '1 BOX', actual: 1200, discount: 120 },
+      { id: '62', category: 'KIDS FANCY', name: 'TOP GUN', item: '1 BOX', actual: 1200, discount: 120 },
+      { id: '63', category: 'KIDS FANCY', name: 'PAMBARAM (5 PCS)', item: '1 BOX', actual: 960, discount: 96 },
+      { id: '64', category: 'KIDS FANCY', name: 'ROBO KIDS (5 PCS)', item: '1 BOX', actual: 1620, discount: 162 },
+      { id: '65', category: 'KIDS FANCY', name: 'PANDA (5 PCS)', item: '1 BOX', actual: 2880, discount: 288 },
+      { id: '66', category: 'KIDS FANCY', name: 'TRI COLOR (5 PCS)', item: '1 BOX', actual: 2640, discount: 264 },
+      { id: '67', category: 'KIDS FANCY', name: 'GOLDEN DROPS SHOWER (5 PCS)', item: '1 BOX', actual: 1200, discount: 120 },
+      { id: '68', category: 'KIDS FANCY', name: 'MONEY BANK', item: '1 BOX', actual: 1200, discount: 120 },
+      { id: '69', category: 'WOUNDERFULL FOUNTAINS', name: 'LOLLIPOP FOUNTAIN (2 PCS)', item: '1 BOX', actual: 2100, discount: 210 },
+      { id: '70', category: 'WOUNDERFULL FOUNTAINS', name: 'COCK FIGHT FOUNTAIN (2 PCS)', item: '1 BOX', actual: 2100, discount: 210 },
+      { id: '71', category: 'WOUNDERFULL FOUNTAINS', name: 'ULTRA VOLTAGE FOUNTAIN (2 PCS)', item: '1 BOX', actual: 2100, discount: 210 },
+      { id: '72', category: 'WOUNDERFULL FOUNTAINS', name: 'PRIDE POPCORN FOUNTAIN (2 PCS)', item: '1 BOX', actual: 2100, discount: 210 },
+      { id: '73', category: 'WOUNDERFULL FOUNTAINS', name: 'PEACOCK FOUNTAIN (2 PCS)', item: '1 BOX', actual: 2100, discount: 210 },
+      { id: '74', category: 'WOUNDERFULL FOUNTAINS', name: 'MOJITO FOUNTAIN (2 PCS)', item: '1 BOX', actual: 2100, discount: 210 },
+      { id: '75', category: 'WOUNDERFULL FOUNTAINS', name: 'DR. PEPPER', item: '1 BOX', actual: 1920, discount: 192 },
+      { id: '76', category: 'WOUNDERFULL FOUNTAINS', name: 'BIG BANG RACING', item: '1 BOX', actual: 1920, discount: 192 },
+      { id: '77', category: 'WOUNDERFULL FOUNTAINS', name: 'AZZ MUSIC', item: '1 BOX', actual: 1920, discount: 192 },
+      { id: '78', category: 'WOUNDERFULL FOUNTAINS', name: 'KARAOKE NIGHT', item: '1 BOX', actual: 1920, discount: 192 },
+      { id: '79', category: 'WOUNDERFULL FOUNTAINS', name: 'MIXED FRUITS FOUNTAIN', item: '1 BOX', actual: 1920, discount: 192 },
+      { id: '80', category: 'SPECIAL FANCY', name: '1000 PIPERS', item: '1 BOX', actual: 1920, discount: 192 },
+      { id: '81', category: 'SPECIAL FANCY', name: 'WIRE CHAKKAR', item: '1 BOX', actual: 2160, discount: 216 },
+      { id: '82', category: 'SPECIAL FANCY', name: 'DANCING UMBERLA', item: '1 BOX', actual: 2160, discount: 216 },
+      { id: '83', category: 'SPECIAL FANCY', name: 'TUNDER STORM', item: '1 BOX', actual: 2160, discount: 216 },
+      { id: '84', category: 'SPECIAL FANCY', name: 'ROSE THUNDER', item: '1 BOX', actual: 2400, discount: 240 },
+      { id: '85', category: 'SPECIAL FANCY', name: 'SIREN (3PCS)', item: '1 BOX', actual: 2280, discount: 228 },
+      { id: '86', category: 'SPECIAL FANCY', name: 'MINI SIREN (5 PCS)', item: '1 BOX', actual: 2040, discount: 204 },
+      { id: '87', category: 'SPECIAL FANCY', name: 'SMOKE', item: '1 BOX', actual: 1320, discount: 132 },
+      { id: '88', category: 'SPECIAL FANCY', name: 'SELFI STICK (3 PCS)', item: '1 BOX', actual: 1920, discount: 192 },
+      { id: '89', category: 'SPECIAL FANCY', name: 'PINK RAIN (5 PCS)', item: '1 BOX', actual: 1920, discount: 192 },
+      { id: '90', category: 'SPECIAL FANCY', name: 'SILVER RAIN (5 PCS)', item: '1 BOX', actual: 1920, discount: 192 },
+      { id: '91', category: 'SPECIAL FANCY', name: 'POWER FULL TORCH (2PCS)', item: '1 BOX', actual: 1920, discount: 192 },
+      { id: '92', category: 'SPECIAL FANCY', name: 'DANCING SHOOTER', item: '1 BOX', actual: 2880, discount: 288 },
+      { id: '93', category: 'SPECIAL FANCY', name: 'DORA SINGER', item: '1 BOX', actual: 1920, discount: 192 },
+      { id: '94', category: 'KIDS FAVORITES', name: 'SNAKE TABLET', item: '1 BOX', actual: 600, discount: 60 },
+      { id: '95', category: 'KIDS FAVORITES', name: 'KITKAT', item: '1 BOX', actual: 480, discount: 48 },
+      { id: '96', category: 'KIDS FAVORITES', name: 'MAGIC STONE', item: '1 BOX', actual: 420, discount: 42 },
+      { id: '97', category: 'KIDS FAVORITES', name: 'CARTOON', item: '1 BOX', actual: 480, discount: 48 },
+      { id: '98', category: 'KIDS FAVORITES', name: 'SNAKE CARTOON', item: '1 BOX', actual: 600, discount: 60 },
+      { id: '99', category: 'KIDS FAVORITES', name: 'ROLL CAP', item: '1 BOX', actual: 600, discount: 60 },
+      { id: '100', category: 'KIDS FAVORITES', name: 'GUN', item: '1 PCS', actual: 600, discount: 60 },
+      { id: '101', category: 'KIDS FAVORITES', name: 'BULLET(GUN)', item: '1 PKT', actual: 120, discount: 12 },
+      { id: '102', category: 'KIDS FAVORITES', name: 'CRACKLING VEL', item: '1 BOX', actual: 2400, discount: 240 },
+      { id: '103', category: 'KIDS FAVORITES', name: '5 MAN ARMY', item: '1 BOX', actual: 840, discount: 84 },
+      { id: '104', category: 'MEGA BOMB', name: '250G BOMB', item: '1 BOX', actual: 540, discount: 54 },
+      { id: '105', category: 'MEGA BOMB', name: '500G BOMB', item: '1 BOX', actual: 1080, discount: 108 },
+      { id: '106', category: 'MEGA BOMB', name: '1KG BOMB', item: '1 BOX', actual: 2040, discount: 204 },
+      { id: '107', category: 'MEGA BOMB', name: 'GOLD WAR', item: '1 BOX', actual: 2160, discount: 216 },
+      { id: '108', category: 'MULTI SOUND CRACKERS (MOTHERS)', name: '56 GAINT', item: '1 BOX', actual: 580, discount: 58 },
+      { id: '109', category: 'MULTI SOUND CRACKERS (MOTHERS)', name: '50 DELUXE', item: '1 BOX', actual: 1440, discount: 144 },
+      { id: '110', category: 'MULTI SOUND CRACKERS (MOTHERS)', name: '100 SOUND CRACKERS', item: '1 BOX', actual: 540, discount: 54 },
+      { id: '111', category: 'MULTI SOUND CRACKERS (MOTHERS)', name: '200 SOUND CRACKERS', item: '1 BOX', actual: 1080, discount: 108 },
+      { id: '112', category: 'MULTI SOUND CRACKERS (MOTHERS)', name: '600 SOUND CRACKERS', item: '1 BOX', actual: 2520, discount: 252 },
+      { id: '113', category: 'MULTI SOUND CRACKERS (MOTHERS)', name: '1000 SOUND CRACKERS', item: '1 BOX', actual: 4200, discount: 420 },
+      { id: '114', category: 'MULTI SOUND CRACKERS (MOTHERS)', name: '2000 SOUND CRACKERS', item: '1 BOX', actual: 8400, discount: 840 },
+      { id: '115', category: 'MULTI SOUND CRACKERS (MOTHERS)', name: '5000 SOUND CR4ACKERS', item: '1 BOX', actual: 20400, discount: 2040 },
+      { id: '116', category: 'MULTI SOUND CRACKERS (MOTHERS)', name: '10,000 SOUND CRACKERS', item: '1 BOX', actual: 40800, discount: 4080 },
+      { id: '117', category: 'SINGLE SKY SHOT', name: '2"PIPE (SINGLE)', item: '1 BOX', actual: 1620, discount: 162 },
+      { id: '118', category: 'SINGLE SKY SHOT', name: '2"PIPE (3 PCS)', item: '1 BOX', actual: 3600, discount: 360 },
+      { id: '119', category: 'SINGLE SKY SHOT', name: '2.5" PIPE (2PCS)', item: '1 BOX', actual: 3600, discount: 360 },
+      { id: '120', category: 'SINGLE SKY SHOT', name: '2.5"PIPE (3-STEP)', item: '1 BOX', actual: 4080, discount: 408 },
+      { id: '121', category: 'SINGLE SKY SHOT', name: '3" PIPE(SINGLE)', item: '1 BOX', actual: 3480, discount: 348 },
+      { id: '122', category: 'SINGLE SKY SHOT', name: '3.5"PIPE (SINGLE)', item: '1 BOX', actual: 3840, discount: 384 },
+      { id: '123', category: 'SINGLE SKY SHOT', name: '4" PIPE (SINGLE)', item: '1 BOX', actual: 5040, discount: 504 },
+      { id: '124', category: 'SINGLE SKY SHOT', name: '4"DOUBLE BALL (SINGLE)', item: '1 BOX', actual: 6000, discount: 600 },
+      { id: '125', category: 'FANTACY SHOTS', name: 'FANTACY SKY SHOT', item: '1 BOX', actual: 2160, discount: 216 },
+      { id: '126', category: 'FANTACY SHOTS', name: 'FANTACY SCOOP', item: '1 BOX', actual: 1560, discount: 156 },
+      { id: '127', category: 'FANTACY SHOTS', name: '7UP MAGIC STAR', item: '1 BOX', actual: 1440, discount: 144 },
+      { id: '128', category: 'COLOUR SHOT RIDER', name: '12 COLOUR RIDER', item: '1 BOX', actual: 1800, discount: 180 },
+      { id: '129', category: 'COLOUR SHOT RIDER', name: '12 CRACKLING RIDER', item: '1 BOX', actual: 2040, discount: 204 },
+      { id: '130', category: 'COLOUR SHOT RIDER', name: '25 RIDER', item: '1 BOX', actual: 2400, discount: 240 },
+      { id: '131', category: 'MULTI COLOUR SHY SHOT', name: '15 SHOT DESIRE', item: '1 BOX', actual: 3480, discount: 348 },
+      { id: '132', category: 'MULTI COLOUR SHY SHOT', name: '16 SHOT EXPRESS', item: '1 BOX', actual: 3600, discount: 360 },
+      { id: '133', category: 'MULTI COLOUR SHY SHOT', name: '10 HAND SHORT', item: '1 BOX', actual: 5400, discount: 540 },
+      { id: '134', category: 'MULTI COLOUR SHY SHOT', name: '30 SHOT DIGITAL', item: '1 BOX', actual: 5400, discount: 540 },
+      { id: '135', category: 'MULTI COLOUR SHY SHOT', name: '30 SHOT SPACE X', item: '1 BOX', actual: 5640, discount: 564 },
+      { id: '136', category: 'MULTI COLOUR SHY SHOT', name: '50 SHOT BATTLE', item: '1 BOX', actual: 10200, discount: 1020 },
+      { id: '137', category: 'MULTI COLOUR SHY SHOT', name: '60 SHOT MASTIC SPECIAL', item: '1 BOX', actual: 11400, discount: 1140 },
+      { id: '138', category: 'MULTI COLOUR SHY SHOT', name: '80 SHOT MAJA SPECIAL', item: '1 BOX', actual: 15600, discount: 1560 },
+      { id: '139', category: 'MULTI COLOUR SHY SHOT', name: '100 SHOT SHAADI KA GIFT SPECIAL', item: '1 BOX', actual: 17760, discount: 1776 },
+      { id: '140', category: 'MULTI COLOUR SHY SHOT', name: '200 SHOT ACTION SPECIAL', item: '1 BOX', actual: 35400, discount: 3540 },
+      { id: '141', category: 'MULTI COLOUR SHY SHOT', name: '5 X 10 RAINBOW SKY SHORT', item: '1 BOX', actual: 30000, discount: 3000 },
+      { id: '142', category: 'GIFT BOX', name: '21 Items', item: '1 BOX', actual: 1925, discount: 385 },
+      { id: '143', category: 'GIFT BOX', name: '30 Items', item: '1 BOX', actual: 3300, discount: 660 },
+      { id: '144', category: 'GIFT BOX', name: '36 Items', item: '1 BOX', actual: 3575, discount: 715 },
+      { id: '145', category: 'GIFT BOX', name: '42 Items', item: '1 BOX', actual: 4675, discount: 935 },
+      { id: '146', category: 'GIFT BOX', name: '50 Items', item: '1 BOX', actual: 5500, discount: 1100 }
+    ];
+
+    var state = {
+      demo: true,
+      shopName: 'Sundar Traders, Sivakasi',
+      tagline: 'Top Quality Crackers at 90% Discount from the manufacturers directly.',
+      whatsapp: '919600219655',
+      products: SAMPLE_PRODUCTS,
+      qty: {},
+      category: 'All',
+      query: '',
+      lastOrder: null
+    };
+
+    function parseCsv(text) {
+      var rows = [];
+      var row = [];
+      var field = '';
+      var i = 0;
+      var inQuotes = false;
+      var s = String(text || '').replace(/^\\\\uFEFF/, '');
+      while (i < s.length) {
+        var c = s.charAt(i);
+        if (inQuotes) {
+          if (c === '"') {
+            if (s.charAt(i + 1) === '"') { field += '"'; i++; }
+            else inQuotes = false;
+          } else field += c;
+        } else if (c === '"') {
+          inQuotes = true;
+        } else if (c === ',') {
+          row.push(field);
+          field = '';
+        } else if (c === '\\
+' || c === '\\\\r') {
+          if (c === '\\\\r' && s.charAt(i + 1) === '\\
+') i++;
+          row.push(field);
+          field = '';
+          if (row.some(function (cell) { return String(cell).trim() !== ''; })) rows.push(row);
+          row = [];
+        } else {
+          field += c;
+        }
+        i++;
+      }
+      if (field !== '' || row.length) {
+        row.push(field);
+        if (row.some(function (cell) { return String(cell).trim() !== ''; })) rows.push(row);
+      }
+      return rows;
+    }
+
+    function headerIndex(headerRow) {
+      var map = {};
+      (headerRow || []).forEach(function (h, i) {
+        var key = String(h || '').trim().toLowerCase();
+        if (key && map[key] === undefined) map[key] = i;
+      });
+      return map;
+    }
+
+    function csvCell(row, col, names) {
+      for (var i = 0; i < names.length; i++) {
+        var idx = col[names[i]];
+        if (idx !== undefined && idx < row.length) {
+          var v = String(row[idx] == null ? '' : row[idx]).trim();
+          if (v) return v;
+        }
+      }
+      return '';
+    }
+
+    function toAmount(v) {
+      var n = Number(String(v || '').replace(/Rs\\\\.?/gi, '').replace(/[\\u20b9,\\\\s]/g, ''));
+      return isNaN(n) ? 0 : n;
+    }
+
+    function productsFromCsv(text) {
+      var rows = parseCsv(text);
+      if (!rows.length) return [];
+      var col = headerIndex(rows[0]);
+      var products = [];
+      for (var i = 1; i < rows.length; i++) {
+        var row = rows[i];
+        var id = csvCell(row, col, ['id', 'sku', 'code']);
+        var name = csvCell(row, col, ['name', 'product', 'cracker']);
+        if (!id && !name) continue;
+        var actual = toAmount(csvCell(row, col, ['actual price', 'actual', 'mrp', 'price']));
+        var discount = toAmount(csvCell(row, col, ['discount price', 'discount', 'offer', 'net price']));
+        products.push({
+          id: id || ('P' + i),
+          category: csvCell(row, col, ['category', 'type']) || 'General',
+          name: name || id,
+          item: csvCell(row, col, ['item', 'packing', 'pack', 'unit']),
+          actual: actual,
+          discount: discount > 0 ? discount : actual
+        });
+      }
+      return products;
+    }
+
+    function easyText(s) {
+      return String(s || '').toLowerCase().replace(/\\\\b([a-z0-9])/g, function (_, c) { return c.toUpperCase(); });
+    }
+
+    function rupees(n) {
+      return '\\u20b9' + Number(n || 0).toLocaleString('en-IN');
+    }
+
+    function selectedItems() {
+      var out = [];
+      state.products.forEach(function (p) {
+        var q = Number(state.qty[p.id] || 0);
+        if (q > 0) {
+          out.push({
+            id: p.id,
+            name: p.name,
+            qty: q,
+            actual: p.actual,
+            discount: p.discount,
+            item: p.item || '',
+            net: Math.round(p.discount * q * 100) / 100,
+            mrp: Math.round(p.actual * q * 100) / 100
+          });
+        }
+      });
+      return out;
+    }
+
+    function totals() {
+      var items = selectedItems();
+      var mrp = 0, net = 0, count = 0;
+      items.forEach(function (i) {
+        mrp += i.mrp;
+        net += i.net;
+        count += i.qty;
+      });
+      return { items: items, mrp: mrp, net: net, count: count, savings: mrp - net };
+    }
+
+    function setQty(id, value) {
+      var n = Math.floor(Number(value) || 0);
+      if (n < 0) n = 0;
+      if (n > 500) n = 500;
+      if (n === 0) delete state.qty[id];
+      else state.qty[id] = n;
+      var card = null;
+      var cards = document.querySelectorAll('.item');
+      for (var i = 0; i < cards.length; i++) {
+        if (cards[i].getAttribute('data-id') === id) { card = cards[i]; break; }
+      }
+      var p = null;
+      state.products.forEach(function (x) { if (x.id === id) p = x; });
+      if (card && p) {
+        card.querySelector('.qty input').value = String(n);
+        card.querySelector('.net strong').textContent = rupees(p.discount * n);
+        card.setAttribute('data-qty', String(n));
+      }
+      renderSummary();
+    }
+
+    function matches(p) {
+      if (state.category !== 'All' && p.category !== state.category) return false;
+      var q = state.query.trim().toLowerCase();
+      if (!q) return true;
+      return (p.name + ' ' + p.id + ' ' + p.category + ' ' + (p.item || '')).toLowerCase().indexOf(q) !== -1;
+    }
+
+    function renderChips() {
+      var cats = ['All'];
+      state.products.forEach(function (p) {
+        if (cats.indexOf(p.category) === -1) cats.push(p.category);
+      });
+      var root = document.getElementById('chips');
+      root.innerHTML = '';
+      cats.forEach(function (c) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'chip' + (state.category === c ? ' active' : '');
+        b.textContent = c === 'All' ? 'All' : easyText(c);
+        b.addEventListener('click', function () {
+          state.category = c;
+          render();
+        });
+        root.appendChild(b);
+      });
+    }
+
+    function renderCatalog() {
+      var root = document.getElementById('catalog');
+      root.innerHTML = '';
+      var groups = [];
+      var map = {};
+      state.products.filter(matches).forEach(function (p) {
+        if (!map[p.category]) {
+          map[p.category] = [];
+          groups.push(p.category);
+        }
+        map[p.category].push(p);
+      });
+      if (!groups.length) {
+        var empty = document.createElement('div');
+        empty.className = 'empty';
+        empty.textContent = 'No crackers match your search.';
+        root.appendChild(empty);
+        return;
+      }
+      groups.forEach(function (cat) {
+        var h = document.createElement('div');
+        h.className = 'cat-title';
+        h.textContent = easyText(cat);
+        root.appendChild(h);
+        var list = document.createElement('div');
+        list.className = 'list';
+        map[cat].forEach(function (p) {
+          list.appendChild(renderItem(p));
+        });
+        root.appendChild(list);
+      });
+    }
+
+    function renderItem(p) {
+      var q = Number(state.qty[p.id] || 0);
+      var card = document.createElement('article');
+      card.className = 'item';
+      card.setAttribute('data-id', p.id);
+      card.setAttribute('data-qty', String(q));
+
+      var info = document.createElement('div');
+      var name = document.createElement('div');
+      name.className = 'name';
+      var id = document.createElement('span');
+      id.className = 'id';
+      id.textContent = '#' + p.id;
+      name.appendChild(id);
+      var nameText = document.createElement('span');
+      nameText.textContent = easyText(p.name);
+      name.appendChild(nameText);
+      if (p.item) {
+        var pack = document.createElement('span');
+        pack.className = 'pack';
+        pack.textContent = p.item;
+        name.appendChild(pack);
+      }
+      var prices = document.createElement('div');
+      prices.className = 'prices';
+      var mrp = document.createElement('s');
+      mrp.textContent = rupees(p.actual);
+      var now = document.createElement('span');
+      now.className = 'now';
+      now.textContent = rupees(p.discount);
+      prices.appendChild(mrp);
+      prices.appendChild(now);
+      info.appendChild(name);
+      info.appendChild(prices);
+
+      var qty = document.createElement('div');
+      qty.className = 'qty';
+      var minus = document.createElement('button');
+      minus.type = 'button';
+      minus.setAttribute('aria-label', 'Decrease');
+      minus.textContent = '−';
+      minus.addEventListener('click', function () { setQty(p.id, (state.qty[p.id] || 0) - 1); });
+      var input = document.createElement('input');
+      input.type = 'number';
+      input.min = '0';
+      input.max = '500';
+      input.value = String(q);
+      input.addEventListener('change', function () { setQty(p.id, input.value); });
+      var plus = document.createElement('button');
+      plus.type = 'button';
+      plus.setAttribute('aria-label', 'Increase');
+      plus.textContent = '+';
+      plus.addEventListener('click', function () { setQty(p.id, (state.qty[p.id] || 0) + 1); });
+      qty.appendChild(minus);
+      qty.appendChild(input);
+      qty.appendChild(plus);
+
+      var net = document.createElement('div');
+      net.className = 'net';
+      var left = document.createElement('span');
+      left.textContent = 'Net';
+      var right = document.createElement('strong');
+      right.textContent = rupees(p.discount * q);
+      net.appendChild(left);
+      net.appendChild(right);
+
+      card.appendChild(info);
+      card.appendChild(qty);
+      card.appendChild(net);
+      return card;
+    }
+
+    function renderSummary() {
+      var t = totals();
+      var box = document.getElementById('orderSummary');
+      box.innerHTML = '';
+      function line(k, v, cls) {
+        var d = document.createElement('div');
+        d.className = 'sum-line' + (cls ? ' ' + cls : '');
+        var a = document.createElement('span'); a.textContent = k;
+        var b = document.createElement('span'); b.textContent = v;
+        d.appendChild(a); d.appendChild(b);
+        box.appendChild(d);
+      }
+      line('Items', String(t.count));
+      line('MRP total', rupees(t.mrp));
+      line('You save', rupees(t.savings));
+      line('Net total', rupees(t.net), 'grand');
+      document.getElementById('barCount').textContent = t.count + (t.count === 1 ? ' item' : ' items');
+      document.getElementById('barTotal').textContent = rupees(t.net);
+    }
+
+    function render() {
+      document.getElementById('shopName').textContent = state.shopName;
+      document.getElementById('tagline').textContent = state.tagline;
+      document.title = state.shopName;
+      document.getElementById('demoBanner').style.display = state.demo ? 'block' : 'none';
+      renderChips();
+      renderCatalog();
+      renderSummary();
+    }
+
+    function validate() {
+      var name = document.getElementById('custName').value.trim();
+      var phone = document.getElementById('custPhone').value.replace(/\\\\D/g, '');
+      var address = document.getElementById('custAddress').value.trim();
+      var t = totals();
+      if (!t.count) return 'Add quantity for at least one cracker.';
+      if (name.length < 2) return 'Please enter your name.';
+      if (!/^[6-9]\\\\d{9}$/.test(phone)) return 'Enter a valid 10-digit mobile number.';
+      if (address.length < 8) return 'Please enter your full address.';
+      return '';
+    }
+
+    function payload() {
+      var t = totals();
+      return {
+        name: document.getElementById('custName').value.trim(),
+        phone: document.getElementById('custPhone').value.replace(/\\\\D/g, ''),
+        address: document.getElementById('custAddress').value.trim(),
+        notes: document.getElementById('custNotes').value.trim(),
+        items: t.items.map(function (i) { return { id: i.id, qty: i.qty }; })
+      };
+    }
+
+    function showSuccess(result) {
+      state.lastOrder = result;
+      document.getElementById('shopView').style.display = 'none';
+      document.getElementById('bar').style.display = 'none';
+      var ok = document.getElementById('successView');
+      ok.style.display = 'block';
+      document.getElementById('successId').textContent = result.orderId;
+      var body = document.getElementById('successBody');
+      body.innerHTML = '';
+      if (state.demo) {
+        var demo = document.createElement('p');
+        demo.textContent = 'Preview only \\u2014 this order was not saved to Google Sheets.';
+        body.appendChild(demo);
+      }
+      var t = document.createElement('p');
+      t.textContent = 'Net total ' + rupees(result.netTotal);
+      body.appendChild(t);
+      var ul = document.createElement('p');
+      ul.textContent = (result.items || []).map(function (i) {
+        return i.qty + ' × ' + i.name + (i.item ? ' (' + i.item + ')' : '');
+      }).join(', ');
+      body.appendChild(ul);
+      var wa = document.getElementById('waLink');
+      var num = state.whatsapp;
+      if (num) {
+        var text = 'Order ' + result.orderId +
+          '\\
+Name: ' + document.getElementById('custName').value.trim() +
+          '\\
+Mobile: ' + document.getElementById('custPhone').value.replace(/\\\\D/g, '') +
+          '\\
+Address: ' + document.getElementById('custAddress').value.trim() +
+          '\\
+Total: ' + rupees(result.netTotal);
+        wa.href = 'https://wa.me/' + num + '?text=' + encodeURIComponent(text);
+        wa.hidden = false;
+      } else {
+        wa.hidden = true;
+      }
+      window.scrollTo(0, 0);
+    }
+
+    function submitOrder() {
+      var err = validate();
+      var box = document.getElementById('formError');
+      box.textContent = err;
+      if (err) {
+        document.getElementById('checkout').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        return;
+      }
+      var btn = document.getElementById('submitBtn');
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+      var data = payload();
+
+      function fail(msg) {
+        btn.disabled = false;
+        btn.textContent = 'Place order';
+        box.textContent = msg || 'Could not send the order. Please try again.';
+      }
+
+      if (window.google && google.script && google.script.run) {
+        google.script.run
+          .withSuccessHandler(function (res) {
+            btn.disabled = false;
+            btn.textContent = 'Place order';
+            showSuccess(res);
+          })
+          .withFailureHandler(function (e) {
+            fail(e && e.message ? e.message : String(e));
+          })
+          .placeOrder(data);
+        return;
+      }
+
+      var t = totals();
+      var fake = {
+        ok: true,
+        orderId: 'DEMO-' + Date.now().toString().slice(-6),
+        netTotal: t.net,
+        mrpTotal: t.mrp,
+        savings: t.savings,
+        items: t.items
+      };
+      try {
+        localStorage.setItem('lastCrackerOrder', JSON.stringify({ customer: data, result: fake }));
+      } catch (e) {}
+      showSuccess(fake);
+    }
+
+    function init(config) {
+      state.demo = !!config.demo;
+      state.shopName = config.shopName || state.shopName;
+      state.tagline = config.tagline || state.tagline;
+      state.whatsapp = String(config.whatsapp || '').replace(/\\\\D/g, '');
+      if (config.products && config.products.length) state.products = config.products;
+      render();
+    }
+
+    document.getElementById('search').addEventListener('input', function (e) {
+      state.query = e.target.value;
+      renderCatalog();
+    });
+    document.getElementById('submitBtn').addEventListener('click', submitOrder);
+    document.getElementById('homeBtn').addEventListener('click', function () {
+      state.qty = {};
+      state.lastOrder = null;
+      document.getElementById('successView').style.display = 'none';
+      document.getElementById('shopView').style.display = '';
+      document.getElementById('bar').style.display = '';
+      document.getElementById('formError').textContent = '';
+      render();
+      window.scrollTo(0, 0);
+    });
+    document.getElementById('printOrder').addEventListener('click', function () {
+      document.body.classList.add('receipt');
+      window.print();
+      document.body.classList.remove('receipt');
+    });
+
+    function demoConfig(products) {
+      return {
+        demo: true,
+        shopName: 'Sundar Traders, Sivakasi',
+        tagline: 'Top Quality Crackers at 90% Discount from the manufacturers directly.',
+        whatsapp: '919600219655',
+        products: products && products.length ? products : SAMPLE_PRODUCTS
+      };
+    }
+
+    function bootFromCsv() {
+      fetch('products.csv').then(function (res) {
+        if (!res.ok) throw new Error('Could not load products.csv');
+        return res.text();
+      }).then(function (text) {
+        init(demoConfig(productsFromCsv(text)));
+      }).catch(function () {
+        init(demoConfig(SAMPLE_PRODUCTS));
+      });
+    }
+
+    if (window.google && google.script && google.script.run) {
+      google.script.run.withSuccessHandler(init).withFailureHandler(bootFromCsv).getClientConfig();
+    } else {
+      bootFromCsv();
+    }
+  </script>
+</body>

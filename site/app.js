@@ -1,8 +1,5 @@
-/* Sundar Traders order app (mock-first).
- * Products load through ONE fetch call (DATA_URL) so the Google Sheet
- * backend can replace products.json later without touching this file.
- * Orders are kept client-side for now: WhatsApp send + printable receipt
- * + localStorage copy. A placeOrder endpoint can hook into submitOrder later.
+/* Design prototype JS — same order flow as the main build, card-grid rendering.
+ * Products via ONE fetch (products.json). Prototype data: 12 sample items.
  */
 var DATA_URL = 'products.json';
 var WHATSAPP = '919600219655';
@@ -16,6 +13,11 @@ function rupees(n) {
 
 function easyText(s) {
   return String(s == null ? '' : s).toLowerCase().replace(/\b\w/g, function (c) { return c.toUpperCase(); });
+}
+
+function offPct(p) {
+  if (!p.mrp || p.mrp <= p.price) return 0;
+  return Math.round((1 - p.price / p.mrp) * 100);
 }
 
 function selectedItems() {
@@ -40,24 +42,62 @@ function totals() {
   return { items: items, mrp: mrp, net: net, count: count, savings: mrp - net };
 }
 
+function refreshCard(id) {
+  var n = Number(state.qty[id] || 0);
+  var cards = document.querySelectorAll('.card'), i, card = null;
+  for (i = 0; i < cards.length; i++) {
+    if (cards[i].getAttribute('data-id') === id) { card = cards[i]; break; }
+  }
+  if (!card) return;
+  card.setAttribute('data-qty', String(n));
+  var p = null;
+  state.products.forEach(function (x) { if (x.id === id) p = x; });
+  var buy = card.querySelector('.buy');
+  buy.innerHTML = '';
+  buy.appendChild(n === 0 ? addBtn(p) : stepper(p, n));
+  renderSummary();
+}
+
 function setQty(id, value) {
   var n = Math.floor(Number(value) || 0);
   if (n < 0) n = 0;
   if (n > 500) n = 500;
   if (n === 0) delete state.qty[id];
   else state.qty[id] = n;
-  var cards = document.querySelectorAll('.item'), card = null, i;
-  for (i = 0; i < cards.length; i++) {
-    if (cards[i].getAttribute('data-id') === id) { card = cards[i]; break; }
-  }
-  var p = null;
-  state.products.forEach(function (x) { if (x.id === id) p = x; });
-  if (card && p) {
-    card.querySelector('.qty input').value = String(n);
-    card.querySelector('.net strong').textContent = rupees(p.price * n);
-    card.setAttribute('data-qty', String(n));
-  }
-  renderSummary();
+  refreshCard(id);
+}
+
+function addBtn(p) {
+  var b = document.createElement('button');
+  b.type = 'button';
+  b.className = 'add-btn';
+  b.textContent = 'Add +';
+  b.addEventListener('click', function () { setQty(p.id, 1); });
+  return b;
+}
+
+function stepper(p, n) {
+  var wrap = document.createElement('div');
+  wrap.className = 'qty';
+  var minus = document.createElement('button');
+  minus.type = 'button';
+  minus.setAttribute('aria-label', 'Decrease');
+  minus.textContent = '−';
+  minus.addEventListener('click', function () { setQty(p.id, n - 1); });
+  var input = document.createElement('input');
+  input.value = String(n);
+  input.inputMode = 'numeric';
+  input.setAttribute('aria-label', 'Quantity');
+  input.addEventListener('change', function () { setQty(p.id, input.value); });
+  var plus = document.createElement('button');
+  plus.type = 'button';
+  plus.setAttribute('aria-label', 'Increase');
+  plus.textContent = '+';
+  plus.addEventListener('click', function () { setQty(p.id, n + 1); });
+  wrap.appendChild(minus);
+  wrap.appendChild(input);
+  wrap.appendChild(plus);
+  return wrap;
 }
 
 function matches(p) {
@@ -95,35 +135,40 @@ function renderChips() {
   });
 }
 
-function renderItem(p) {
+function renderCard(p) {
   var q = Number(state.qty[p.id] || 0);
   var card = document.createElement('article');
-  card.className = 'item';
+  card.className = 'card';
   card.setAttribute('data-id', p.id);
   card.setAttribute('data-qty', String(q));
 
-  var photo = document.createElement('img');
-  photo.src = p.img;
-  photo.alt = easyText(p.category);
-  photo.loading = 'lazy';
+  var photo = document.createElement('div');
+  photo.className = 'photo';
+  var img = document.createElement('img');
+  img.src = p.img;
+  img.alt = easyText(p.name);
+  img.loading = 'lazy';
+  photo.appendChild(img);
+  var off = offPct(p);
+  if (off > 0) {
+    var badge = document.createElement('span');
+    badge.className = 'off';
+    badge.textContent = '−' + off + '%';
+    photo.appendChild(badge);
+  }
   card.appendChild(photo);
 
-  var info = document.createElement('div');
-  info.className = 'info';
+  var body = document.createElement('div');
+  body.className = 'card-body';
   var name = document.createElement('div');
   name.className = 'name';
-  var id = document.createElement('span');
-  id.className = 'id';
-  id.textContent = '#' + p.id;
-  name.appendChild(id);
-  var nameText = document.createElement('span');
-  nameText.textContent = easyText(p.name);
-  name.appendChild(nameText);
+  name.textContent = easyText(p.name);
+  body.appendChild(name);
   if (p.pack) {
-    var pack = document.createElement('span');
+    var pack = document.createElement('div');
     pack.className = 'pack';
     pack.textContent = p.pack;
-    name.appendChild(pack);
+    body.appendChild(pack);
   }
   var prices = document.createElement('div');
   prices.className = 'prices';
@@ -134,45 +179,14 @@ function renderItem(p) {
   now.textContent = rupees(p.price);
   prices.appendChild(mrp);
   prices.appendChild(now);
-  info.appendChild(name);
-  info.appendChild(prices);
-  card.appendChild(info);
+  body.appendChild(prices);
 
-  var side = document.createElement('div');
-  side.className = 'side';
-  var qty = document.createElement('div');
-  qty.className = 'qty';
-  var minus = document.createElement('button');
-  minus.type = 'button';
-  minus.setAttribute('aria-label', 'Decrease');
-  minus.textContent = '−';
-  minus.addEventListener('click', function () { setQty(p.id, (state.qty[p.id] || 0) - 1); });
-  var input = document.createElement('input');
-  input.type = 'number';
-  input.min = '0';
-  input.max = '500';
-  input.value = String(q);
-  input.setAttribute('aria-label', 'Quantity');
-  input.addEventListener('change', function () { setQty(p.id, input.value); });
-  var plus = document.createElement('button');
-  plus.type = 'button';
-  plus.setAttribute('aria-label', 'Increase');
-  plus.textContent = '+';
-  plus.addEventListener('click', function () { setQty(p.id, (state.qty[p.id] || 0) + 1); });
-  qty.appendChild(minus);
-  qty.appendChild(input);
-  qty.appendChild(plus);
-  side.appendChild(qty);
+  var buy = document.createElement('div');
+  buy.className = 'buy';
+  buy.appendChild(q === 0 ? addBtn(p) : stepper(p, q));
+  body.appendChild(buy);
 
-  var net = document.createElement('div');
-  net.className = 'net';
-  net.appendChild(document.createTextNode('Net '));
-  var right = document.createElement('strong');
-  right.textContent = rupees(p.price * q);
-  net.appendChild(right);
-  side.appendChild(net);
-  card.appendChild(side);
-
+  card.appendChild(body);
   return card;
 }
 
@@ -196,10 +210,10 @@ function renderCatalog() {
     h.className = 'cat-title';
     h.textContent = easyText(cat);
     root.appendChild(h);
-    var list = document.createElement('div');
-    list.className = 'list';
-    map[cat].forEach(function (p) { list.appendChild(renderItem(p)); });
-    root.appendChild(list);
+    var grid = document.createElement('div');
+    grid.className = 'grid';
+    map[cat].forEach(function (p) { grid.appendChild(renderCard(p)); });
+    root.appendChild(grid);
   });
 }
 
@@ -249,7 +263,7 @@ function renderModal() {
     row.className = 'modal-item';
     var name = document.createElement('div');
     name.className = 'modal-name';
-    name.textContent = i.name + (i.item ? ' (' + i.item + ')' : '');
+    name.textContent = easyText(i.name) + (i.pack ? ' (' + i.pack + ')' : '');
     var unit = document.createElement('span');
     unit.className = 'modal-unit';
     unit.textContent = ' · ' + rupees(i.price) + ' each';
@@ -333,8 +347,9 @@ function renderBarItems() {
     var row = document.createElement('div');
     row.className = 'bar-item';
     var left = document.createElement('span');
-    left.textContent = i.qty + ' × ' + i.name + (i.item ? ' (' + i.item + ')' : '');
+    left.textContent = i.qty + ' × ' + easyText(i.name) + (i.pack ? ' (' + i.pack + ')' : '');
     var right = document.createElement('span');
+    right.className = 'qr';
     right.textContent = rupees(i.net);
     row.appendChild(left);
     row.appendChild(right);
@@ -351,12 +366,6 @@ window.addEventListener('scroll', function () {
   lastBarY = y;
 }, { passive: true });
 
-function render() {
-  renderChips();
-  renderCatalog();
-  renderSummary();
-}
-
 function validate() {
   var name = document.getElementById('custName').value.trim();
   var phone = document.getElementById('custPhone').value.replace(/\D/g, '');
@@ -367,17 +376,6 @@ function validate() {
   if (!/^[6-9]\d{9}$/.test(phone)) return 'Enter a valid 10-digit mobile number.';
   if (address.length < 8) return 'Please enter your full address.';
   return '';
-}
-
-function customerData() {
-  var t = totals();
-  return {
-    name: document.getElementById('custName').value.trim(),
-    phone: document.getElementById('custPhone').value.replace(/\D/g, ''),
-    address: document.getElementById('custAddress').value.trim(),
-    notes: document.getElementById('custNotes').value.trim(),
-    items: t.items.map(function (i) { return { id: i.id, qty: i.qty }; })
-  };
 }
 
 function showSuccess(result) {
@@ -417,24 +415,20 @@ function submitOrder() {
   var btn = document.getElementById('submitBtn');
   btn.disabled = true;
   btn.textContent = 'Sending...';
-  var data = customerData();
   var t = totals();
-  // MOCK order: no server yet. placeOrder(endpoint) can replace this block later.
   var result = {
     orderId: 'ST-' + Date.now().toString().slice(-6),
-    netTotal: t.net,
-    mrpTotal: t.mrp,
-    savings: t.savings,
+    netTotal: t.net, mrpTotal: t.mrp, savings: t.savings,
     items: t.items,
-    customer: data
+    customer: {
+      name: document.getElementById('custName').value.trim(),
+      phone: document.getElementById('custPhone').value.replace(/\D/g, ''),
+      address: document.getElementById('custAddress').value.trim(),
+      notes: document.getElementById('custNotes').value.trim()
+    }
   };
-  try {
-    var saved = JSON.parse(localStorage.getItem('crackerOrders') || '[]');
-    saved.push({ at: new Date().toISOString(), order: result });
-    localStorage.setItem('crackerOrders', JSON.stringify(saved));
-  } catch (e) {}
   btn.disabled = false;
-  btn.textContent = 'Place order';
+  btn.textContent = 'Place order 🪔';
   showSuccess(result);
 }
 
@@ -484,7 +478,9 @@ document.getElementById('homeBtn').addEventListener('click', function () {
   document.getElementById('successView').style.display = 'none';
   document.getElementById('shopView').style.display = '';
   document.getElementById('formError').textContent = '';
-  render();
+  renderChips();
+  renderCatalog();
+  renderSummary();
   window.scrollTo(0, 0);
 });
 document.getElementById('printOrder').addEventListener('click', function () {
@@ -498,7 +494,9 @@ fetch(DATA_URL).then(function (res) {
   return res.json();
 }).then(function (products) {
   state.products = products;
-  render();
+  renderChips();
+  renderCatalog();
+  renderSummary();
 }).catch(function () {
   document.getElementById('catalog').innerHTML =
     '<div class="empty">Could not load products. Please refresh.</div>';

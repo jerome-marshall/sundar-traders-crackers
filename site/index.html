@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Sundar Traders, Sivakasi</title>
+  <title>Sundar Traders, Sivakasi — Diwali Crackers</title>
   <style>
     :root {
-      --bg: #f6f2fb; --card: #ffffff; --text: #2a2140; --muted: #6b5d82;
-      --line: #e4d8f2; --accent: #6d28d9; --accent-dark: #5b21b6;
-      --header: #5b21b6; --price: #1a7f45; --danger: #c0392b; --chip: #efe7fa;
+      --night: #2a0a3f; --maroon: #7c1d3f; --gold: #fbbf24; --gold-deep: #b45309;
+      --bg: #fff7ed; --card: #ffffff; --text: #3b1d0c; --muted: #8a6a52;
+      --line: #f3ddba; --price: #15803d; --danger: #c0392b; --accent: #9a3412;
     }
     * { box-sizing: border-box; }
     html, body { margin: 0; }
@@ -17,30 +17,35 @@
       font-size: 16px; line-height: 1.45; background: var(--bg); color: var(--text);
       min-height: 100vh; padding-bottom: 24px;
     }
-    header.hero {
-      background-color: var(--header);
-      background-image: radial-gradient(circle at 15% 20%, rgba(255,255,255,.22), transparent 40%),
-        radial-gradient(circle at 85% 30%, rgba(255,255,255,.14), transparent 45%),
-        radial-gradient(circle at 50% 90%, rgba(255,255,255,.12), transparent 40%);
-      color: #fff; text-align: center; padding: 28px 20px 24px;
+    .preview-note {
+      background: #451a03; color: #fde68a; text-align: center; font-size: .8rem; padding: 6px 12px;
     }
-    .hero-inner { max-width: 880px; margin: 0 auto; }
-    .kicker { margin: 0 0 8px; font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; opacity: .9; }
-    h1 { font-size: 1.7rem; margin: 0 0 10px; letter-spacing: -.02em; }
-    .tagline { margin: 0 auto 12px; max-width: 560px; opacity: .95; }
+    header.hero {
+      background:
+        radial-gradient(circle at 12% 18%, rgba(251,191,36,.55), transparent 26%),
+        radial-gradient(circle at 88% 12%, rgba(251,191,36,.4), transparent 24%),
+        radial-gradient(circle at 50% 108%, rgba(124,29,63,.9), transparent 60%),
+        linear-gradient(160deg, #3b0764 0%, var(--maroon) 70%, #431407 100%);
+      color: #fff; text-align: center; padding: 30px 20px 34px; position: relative; overflow: hidden;
+    }
+    .hero-inner { max-width: 880px; margin: 0 auto; position: relative; }
+    .kicker { margin: 0 0 6px; font-size: .85rem; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); }
+    h1 { font-size: 1.9rem; margin: 0 0 8px; letter-spacing: -.01em; text-shadow: 0 2px 12px rgba(0,0,0,.4); }
+    .tagline { margin: 0 auto 14px; max-width: 560px; opacity: .95; font-size: .95rem; }
     .offer-pill {
-      display: inline-block; background: #fbbf24; color: #451a03; font-weight: 700;
-      border-radius: 999px; padding: 6px 16px; margin-bottom: 12px; font-size: .9rem;
+      display: inline-block; background: linear-gradient(180deg, #fde047, var(--gold)); color: #451a03;
+      font-weight: 800; border-radius: 999px; padding: 7px 18px; margin-bottom: 14px; font-size: .9rem;
+      box-shadow: 0 0 18px rgba(251,191,36,.55);
     }
     .wa-header {
       display: inline-block; background: #22c55e; color: #fff; text-decoration: none;
-      font-weight: 700; border-radius: 999px; padding: 8px 18px; font-size: .92rem;
+      font-weight: 700; border-radius: 999px; padding: 9px 20px; font-size: .92rem;
     }
-    .wrap { max-width: 880px; margin: 0 auto; padding: 16px; }
-    .toolbar { position: sticky; top: 0; z-index: 5; background: linear-gradient(var(--bg) 88%, transparent); padding: 12px 0 4px; }
+    .wrap { max-width: 1060px; margin: 0 auto; padding: 14px 14px 0; }
+    .toolbar { position: sticky; top: 0; z-index: 5; background: var(--bg); border-bottom: 1px solid var(--line); padding: 10px 0 4px; }
     .search {
-      width: 100%; padding: 11px 42px 11px 14px; font-size: 1rem; border: 1px solid var(--line);
-      border-radius: 10px; background: #fff; color: var(--text);
+      width: 100%; padding: 12px 44px 12px 16px; font-size: 1rem; border: 1.5px solid var(--line);
+      border-radius: 14px; background: #fff; color: var(--text); box-shadow: 0 2px 8px rgba(154,52,18,.07);
     }
     .search-wrap { position: relative; }
     .search-icon-btn {
@@ -48,64 +53,84 @@
       width: 34px; height: 34px; display: flex; align-items: center; justify-content: center;
       background: none; border: none; padding: 0; cursor: pointer;
     }
-    .search-icon-btn svg { width: 21px; height: 21px; fill: var(--muted); display: block; }
+    .search-icon-btn svg { width: 22px; height: 22px; fill: var(--muted); display: block; }
     #searchMag { pointer-events: none; }
     input[type="search"]::-webkit-search-cancel-button {
       -webkit-appearance: none; appearance: none; display: none;
     }
-    .chips { display: flex; gap: 8px; overflow-x: auto; padding: 10px 2px 4px; }
+    .chips { display: flex; gap: 8px; overflow-x: auto; padding: 10px 2px 8px; scrollbar-width: none; }
+    .chips::-webkit-scrollbar { display: none; }
     #catalog { scroll-margin-top: 150px; }
     .chip {
-      flex: 0 0 auto; border: 1px solid var(--line); background: var(--chip); color: var(--accent-dark);
-      border-radius: 999px; padding: 6px 14px; font-size: .85rem; cursor: pointer; white-space: nowrap;
+      flex: 0 0 auto; border: 1.5px solid var(--line); background: #fff; color: var(--accent);
+      border-radius: 999px; padding: 7px 15px; font-size: .85rem; font-weight: 600; cursor: pointer; white-space: nowrap;
     }
-    .chip.active { background: var(--accent); color: #fff; border-color: var(--accent); }
-    .cat-title { font-size: 1.05rem; font-weight: 700; margin: 8px 4px 10px; text-transform: capitalize; }
-    .list { display: grid; gap: 10px; }
-    .item {
-      display: flex; gap: 12px; background: var(--card); border: 1px solid var(--line);
-      border-radius: 12px; padding: 10px; align-items: center;
+    .chip.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .cat-title {
+      font-size: 1.15rem; font-weight: 800; margin: 14px 2px 12px; display: flex; align-items: center; gap: 10px;
     }
-    .item img {
-      width: 92px; height: 92px; object-fit: cover; border-radius: 8px; flex: 0 0 auto; background: var(--chip);
+    .cat-title::after { content: ""; flex: 1; height: 1.5px; background: linear-gradient(90deg, var(--gold), transparent); }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media (min-width: 700px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (min-width: 1024px) { .grid { grid-template-columns: repeat(4, 1fr); } }
+    .card {
+      background: var(--card); border: 1px solid var(--line); border-radius: 16px; overflow: hidden;
+      display: flex; flex-direction: column; box-shadow: 0 3px 14px rgba(124,29,63,.08);
     }
-    .item .info { flex: 1 1 auto; min-width: 0; }
-    .item .name { font-weight: 700; font-size: .95rem; }
-    .item .id { color: var(--muted); font-weight: 400; font-size: .8rem; margin-right: 6px; }
-    .item .pack { display: inline-block; font-size: .75rem; color: var(--muted); border: 1px solid var(--line); border-radius: 6px; padding: 0 6px; margin-left: 6px; }
-    .prices { margin-top: 4px; display: flex; gap: 8px; align-items: baseline; }
-    .prices s { color: var(--muted); font-size: .85rem; }
-    .now { color: var(--price); font-weight: 800; font-size: 1.05rem; }
-    .qty { display: flex; align-items: center; gap: 8px; }
+    .photo { position: relative; height: 148px; background: #451a03; }
+    @media (min-width: 700px) { .photo { height: 185px; } }
+    .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .off {
+      position: absolute; top: 8px; left: 8px; background: #dc2626; color: #fff;
+      font-size: .75rem; font-weight: 800; border-radius: 8px; padding: 3px 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,.3);
+    }
+    .card-body { padding: 10px 12px 12px; display: flex; flex-direction: column; gap: 2px; flex: 1; }
+    .card .name { font-weight: 700; font-size: .92rem; line-height: 1.3; }
+    .card .pack { font-size: .75rem; color: var(--muted); }
+    .prices { display: flex; align-items: baseline; gap: 7px; margin-top: 4px; }
+    .prices s { color: var(--muted); font-size: .8rem; }
+    .now { color: var(--price); font-weight: 800; font-size: 1.15rem; }
+    .buy { margin-top: 8px; }
+    .add-btn {
+      width: 100%; background: var(--accent); color: #fff; border: none; border-radius: 10px;
+      padding: 9px; font-size: .92rem; font-weight: 700; cursor: pointer;
+    }
+    .qty { display: flex; align-items: center; justify-content: space-between; gap: 6px; }
     .qty button {
-      width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--accent);
-      background: #fff; color: var(--accent); font-size: 1.2rem; cursor: pointer; line-height: 1;
+      flex: 1; border: 1.5px solid var(--accent); background: #fff; color: var(--accent);
+      border-radius: 10px; padding: 7px; font-size: 1.1rem; font-weight: 800; cursor: pointer; line-height: 1;
     }
     .qty button:active { background: var(--accent); color: #fff; }
-    .qty input { width: 52px; text-align: center; font-size: 1rem; padding: 6px 2px; border: 1px solid var(--line); border-radius: 8px; }
-    .item .side { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
-    .net { font-size: .82rem; color: var(--muted); }
-    .net strong { color: var(--text); display: block; text-align: right; }
-    .item[data-qty="0"] .net { display: none; }
-    .empty { text-align: center; color: var(--muted); padding: 30px 0; }
-    .checkout { margin-top: 28px; background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 18px; }
-    .checkout h2 { font-size: 1.15rem; margin: 0 0 8px; }
-    .checkout .tagline { color: var(--muted); }
-    label { display: block; font-size: .9rem; margin: 12px 0 6px; }
-    input[type="text"], input[type="tel"], textarea {
-      width: 100%; padding: 10px 12px; font-size: 1rem; border: 1px solid var(--line);
-      border-radius: 8px; font-family: inherit; margin-top: 4px;
+    .qty input {
+      width: 44px; text-align: center; font-size: 1rem; font-weight: 700; padding: 7px 2px;
+      border: 1.5px solid var(--line); border-radius: 10px;
     }
-    textarea { min-height: 64px; resize: vertical; }
+    .card .net { font-size: .78rem; color: var(--muted); text-align: right; margin-top: 4px; }
+    .card .net strong { color: var(--text); }
+    .card[data-qty="0"] .net { display: none; }
+    .empty { text-align: center; color: var(--muted); padding: 30px 0; grid-column: 1 / -1; }
+    .checkout {
+      margin: 26px 0 0; background: var(--card); border: 1px solid var(--line);
+      border-radius: 18px; padding: 20px 18px;
+    }
+    .checkout h2 { font-size: 1.2rem; margin: 0 0 6px; }
+    .checkout .tagline { color: var(--muted); font-size: .9rem; margin: 0; }
+    label { display: block; font-size: .9rem; font-weight: 600; margin: 12px 0 6px; }
+    input[type="text"], input[type="tel"], textarea {
+      width: 100%; padding: 11px 13px; font-size: 1rem; border: 1.5px solid var(--line);
+      border-radius: 10px; font-family: inherit; margin-top: 4px; font-weight: 400;
+    }
+    textarea { min-height: 62px; resize: vertical; }
     .req { color: var(--danger); }
-    .summary { margin-top: 14px; border-top: 1px dashed var(--line); padding-top: 10px; }
+    .summary { margin-top: 14px; border-top: 1.5px dashed var(--line); padding-top: 10px; }
     .sum-line { display: flex; justify-content: space-between; padding: 3px 0; }
-    .sum-line.grand { font-weight: 800; font-size: 1.1rem; }
+    .sum-line.grand { font-weight: 800; font-size: 1.15rem; color: var(--accent); }
     .courier-note { color: var(--muted); font-size: .85rem; }
     .error { color: var(--danger); min-height: 1.4em; margin-top: 8px; font-size: .9rem; }
     .error:empty { display: none; }
     .details-link {
-      background: none; border: none; color: var(--accent-dark); font-size: .9rem; font-weight: 700;
+      background: none; border: none; color: var(--accent); font-size: .9rem; font-weight: 700;
       padding: 6px 0 0; cursor: pointer; text-decoration: underline; text-underline-offset: 3px;
     }
     .modal-overlay {
@@ -116,9 +141,9 @@
     .modal-overlay.open { opacity: 1; visibility: visible; transition: opacity 160ms ease-out; }
     @media (min-width: 700px) { .modal-overlay { align-items: center; } }
     .modal {
-      background: #fff; color: var(--text); border-radius: 14px; width: 100%; max-width: 520px;
+      background: #fff; color: var(--text); border-radius: 18px; width: 100%; max-width: 520px;
       max-height: 70vh; padding: 18px; display: flex; flex-direction: column; overflow: hidden;
-      box-shadow: 0 16px 40px rgba(42, 33, 64, .35);
+      box-shadow: 0 16px 40px rgba(43, 10, 20, .35);
       transform: scale(0.95) translateY(10px); transform-origin: center;
       transition: transform 220ms cubic-bezier(0.23, 1, 0.32, 1);
     }
@@ -132,13 +157,13 @@
     .modal-unit { color: var(--muted); font-weight: 400; font-size: .8rem; }
     .modal-ctl { display: flex; align-items: center; gap: 10px; margin-top: 6px; }
     .modal-ctl button.step {
-      width: 32px; height: 32px; border-radius: 8px; border: 1.5px solid var(--accent-dark);
-      background: #fff; color: var(--accent-dark); font-weight: 800; font-size: 1rem; cursor: pointer; line-height: 1;
+      width: 32px; height: 32px; border-radius: 8px; border: 1.5px solid var(--accent);
+      background: #fff; color: var(--accent); font-weight: 800; font-size: 1rem; cursor: pointer; line-height: 1;
     }
     .modal-q { min-width: 2em; text-align: center; font-weight: 800; }
     .modal-net { margin-left: auto; font-weight: 700; }
     .modal-del { border: none; background: none; color: var(--danger); font-size: 1.15rem; padding: 4px 8px; cursor: pointer; }
-    .modal-total { display: flex; justify-content: space-between; font-weight: 800; padding-top: 10px; }
+    .modal-total { display: flex; justify-content: space-between; font-weight: 800; padding-top: 10px; color: var(--accent); }
     .modal-close {
       width: 100%; margin-top: 12px; background: var(--accent); color: #fff; border: none;
       border-radius: 10px; padding: 12px; font-size: 1rem; font-weight: 700; cursor: pointer;
@@ -163,14 +188,16 @@
       .print-rate, .home-btn, .search-icon-btn, .details-link { transition: none; }
     }
     .submit {
-      width: 100%; margin-top: 8px; background: var(--accent); color: #fff; border: none;
-      border-radius: 10px; padding: 14px; font-size: 1.05rem; font-weight: 700; cursor: pointer;
+      width: 100%; margin-top: 8px; background: linear-gradient(180deg, #c2410c, var(--accent)); color: #fff; border: none;
+      border-radius: 12px; padding: 15px; font-size: 1.05rem; font-weight: 800; cursor: pointer;
+      box-shadow: 0 4px 14px rgba(154,52,18,.35);
     }
     .submit:disabled { opacity: .6; }
     .bar {
-      position: fixed; left: 12px; right: 12px; bottom: calc(12px + env(safe-area-inset-bottom)); z-index: 4; background: var(--accent-dark); color: #fff;
-      display: flex; flex-direction: column; align-items: stretch; padding: 14px 20px;
-      font-weight: 700; cursor: pointer; border-radius: 12px;
+      position: fixed; left: 12px; right: 12px; bottom: calc(12px + env(safe-area-inset-bottom)); z-index: 4;
+      background: #451a03; color: #fff; border-radius: 16px; display: flex; flex-direction: column; align-items: stretch;
+      padding: 13px 18px; font-weight: 700; box-shadow: 0 8px 24px rgba(0,0,0,.35);
+      border: 1px solid rgba(251,191,36,.4); cursor: pointer;
       opacity: 0; visibility: hidden; transform: translateY(12px);
       transition: opacity 220ms cubic-bezier(0.23, 1, 0.32, 1), transform 220ms cubic-bezier(0.23, 1, 0.32, 1), visibility 0s 220ms;
     }
@@ -183,44 +210,45 @@
     }
     .bar.open .bar-items { grid-template-rows: 1fr; margin-bottom: 2px; }
     .bar-items-in { overflow-y: auto; min-height: 0; max-height: 30vh; }
-    .bar.open .bar-main { border-top: 1px dashed rgba(255,255,255,.4); padding-top: 10px; margin-top: 6px; }
-    .bar-item { display: flex; justify-content: space-between; gap: 10px; font-size: .88rem; font-weight: 400; padding: 5px 0; }
-    .bar-item + .bar-item { border-top: 1px dashed rgba(255,255,255,.25); }
-    .bar-item span:last-child { white-space: nowrap; }
+    .bar.open .bar-main { border-top: 1px dashed rgba(251,191,36,.45); padding-top: 10px; margin-top: 6px; }
+    .bar-item { display: flex; justify-content: space-between; gap: 10px; font-size: .88rem; font-weight: 400; color: #ffe9c4; padding: 5px 0; }
+    .bar-item + .bar-item { border-top: 1px dashed rgba(251,191,36,.25); }
+    .bar-item .qr { color: var(--gold); white-space: nowrap; }
+    .bar .tot { color: var(--gold); font-size: 1.15rem; }
     .bar-meta { display: flex; flex-direction: column; line-height: 1.25; }
-    .bar .tot { color: #fff; }
     .bar-cta {
-      background: #fbbf24; color: #451a03; border: none;
-      border-radius: 10px; padding: 10px 22px; font-size: 1rem; font-weight: 800; cursor: pointer;
+      background: linear-gradient(180deg, #fde047, var(--gold)); color: #451a03; border: none;
+      border-radius: 12px; padding: 10px 22px; font-size: 1rem; font-weight: 800; cursor: pointer;
     }
     .success { display: none; }
     .success .oid { font-size: 1.3rem; font-weight: 800; margin: 8px 0; }
     .wa {
       display: inline-block; background: #22c55e; color: #fff; text-decoration: none;
-      font-weight: 700; border-radius: 10px; padding: 12px 20px; margin-top: 8px;
+      font-weight: 700; border-radius: 12px; padding: 13px 22px; margin-top: 8px;
     }
-    .print-rate { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 10px 18px; cursor: pointer; margin-top: 8px; }
-    .home-btn { background: var(--chip); border: none; border-radius: 50%; width: 40px; height: 40px; cursor: pointer; color: var(--accent-dark); }
+    .print-rate { background: #fff; border: 1.5px solid var(--line); border-radius: 10px; padding: 10px 18px; cursor: pointer; margin-top: 8px; }
+    .home-btn { background: #fff; border: 1.5px solid var(--line); border-radius: 50%; width: 42px; height: 42px; cursor: pointer; color: var(--accent); }
     .home-btn svg { width: 22px; height: 22px; fill: currentColor; vertical-align: middle; }
-    footer.credits { text-align: center; color: var(--muted); font-size: .78rem; padding: 18px 16px 8px; }
-    footer.credits a { color: var(--accent-dark); }
+    footer.credits { text-align: center; color: var(--muted); font-size: .78rem; padding: 20px 16px 8px; }
+    footer.credits a { color: var(--accent); }
     @media print {
-      .toolbar, .chips, .checkout, .bar, .home-btn, .print-rate, footer.credits { display: none !important; }
-      .item img { width: 48px; height: 48px; }
+      .toolbar, .chips, .checkout, .bar, .home-btn, .print-rate, footer.credits, .preview-note { display: none !important; }
+      .grid { grid-template-columns: repeat(3, 1fr); }
     }
     body.receipt #shopView, body.receipt .bar { display: none !important; }
     body.receipt .success { display: block !important; }
   </style>
 </head>
 <body>
+  <div class="preview-note">Design preview · 12 sample products — react to the look, not the range</div>
   <header class="hero">
     <div class="hero-inner">
-      <p class="kicker">Diwali crackers</p>
-      <h1 id="shopName">Sundar Traders, Sivakasi</h1>
-      <p class="tagline" id="tagline">Top Quality Crackers at 90% Discount from the manufacturers directly.</p>
+      <p class="kicker">🪔 Diwali crackers 🪔</p>
+      <h1>Sundar Traders, Sivakasi</h1>
+      <p class="tagline">Top Quality Crackers at 90% Discount — straight from the manufacturers.</p>
       <div class="offer-pill">Upto 90% off on every item</div>
       <div>
-        <a class="wa-header" href="https://wa.me/919600219655" target="_blank" rel="noopener">For more details, Whatsapp 919600219655</a>
+        <a class="wa-header" href="https://wa.me/919600219655" target="_blank" rel="noopener">Whatsapp 919600219655</a>
       </div>
     </div>
   </header>
@@ -228,7 +256,7 @@
   <main class="wrap" id="shopView">
     <div class="toolbar">
       <div class="search-wrap">
-        <input class="search" id="search" type="search" placeholder="Search crackers" />
+        <input class="search" id="search" type="search" placeholder="Search crackers…" />
         <span class="search-icon-btn" id="searchMag" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.7.7l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14z"/></svg></span>
         <button class="search-icon-btn" id="searchClear" type="button" aria-label="Clear search" style="display:none"><svg viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></button>
       </div>
@@ -266,7 +294,7 @@
       <button class="details-link" id="detailsLink" type="button" style="display:none"></button>
       <p class="courier-note">Courier charges extra based on the location.</p>
       <div class="error" id="formError"></div>
-      <button class="submit" id="submitBtn" type="button">Place order</button>
+      <button class="submit" id="submitBtn" type="button">Place order 🪔</button>
     </section>
   </main>
 
@@ -276,7 +304,7 @@
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2 3.5 10.2c-.3.3-.4.7-.3 1.1.1.4.4.7.8.8h1.2V20c0 .6.4 1 1 1h4.2v-5.2h3.2V21h4.2c.6 0 1-.4 1-1v-7.9h1.2c.4 0 .7-.3.8-.8.1-.4 0-.8-.3-1.1L12 3.2z"/></svg>
       </button>
     </div>
-    <h2>Order received</h2>
+    <h2>Order received 🎉</h2>
     <p>Thank you. We will call you to confirm.</p>
     <div class="oid" id="successId"></div>
     <div id="successBody"></div>
@@ -293,6 +321,6 @@
     <a href="tel:+919600219655">Call +91 96002 19655</a> · <a href="https://wa.me/919600219655" target="_blank" rel="noopener">WhatsApp</a>
   </footer>
 
-  <script src="app.js"></script>
+  <script src="app.js?v=2"></script>
 </body>
 </html>
