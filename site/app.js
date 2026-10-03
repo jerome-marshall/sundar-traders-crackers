@@ -4,7 +4,47 @@
 var DATA_URL = 'products.json';
 var WHATSAPP = '919600219655';
 
-var state = { products: [], qty: {}, category: 'All', query: '' };
+var state = { products: [], qty: {}, category: 'All', query: '', sel: {} };
+
+/* Variant-family pilot: SPARKLERS grouped by colour/effect. One card per
+ * colour, dropdown picks the size (7/10/12/15/30/50 Cm). Variant ids stay
+ * the order/Sheets unit, so totals, bar, modal and checkout are untouched. */
+var FAMILIES = [
+  { id: 'fam-spark-electric', category: 'SPARKLERS', name: 'Sparklers Electric', variantIds: ['1', '3', '7', '11', '15', '19'] },
+  { id: 'fam-spark-colour', category: 'SPARKLERS', name: 'Sparklers Colour', variantIds: ['2', '4', '8', '12', '16'] },
+  { id: 'fam-spark-green', category: 'SPARKLERS', name: 'Sparklers Green', variantIds: ['5', '9', '13', '17'] },
+  { id: 'fam-spark-red', category: 'SPARKLERS', name: 'Sparklers Red', variantIds: ['6', '10', '14', '18'] }
+];
+
+var GROUPED_IDS = {};
+FAMILIES.forEach(function (f) {
+  f.variantIds.forEach(function (id) { GROUPED_IDS[id] = f.id; });
+});
+
+function productById(id) {
+  for (var i = 0; i < state.products.length; i++) {
+    if (state.products[i].id === id) return state.products[i];
+  }
+  return null;
+}
+
+function familyById(fid) {
+  for (var i = 0; i < FAMILIES.length; i++) {
+    if (FAMILIES[i].id === fid) return FAMILIES[i];
+  }
+  return null;
+}
+
+function selectedVariant(fam) {
+  var id = state.sel[fam.id];
+  if (id && fam.variantIds.indexOf(id) !== -1) return productById(id);
+  return productById(fam.variantIds[0]);
+}
+
+function sizeLabel(p) {
+  var m = String(p.name).match(/^\s*(\d+\s*CM)/i);
+  return m ? easyText(m[1]) : easyText(p.name);
+}
 
 function rupees(n) {
   n = Math.round((Number(n) || 0) * 100) / 100;
@@ -64,7 +104,8 @@ function setQty(id, value) {
   if (n > 500) n = 500;
   if (n === 0) delete state.qty[id];
   else state.qty[id] = n;
-  refreshCard(id);
+  if (GROUPED_IDS[id]) refreshFamily(GROUPED_IDS[id]);
+  else refreshCard(id);
 }
 
 function addBtn(p) {
@@ -105,6 +146,27 @@ function matches(p) {
   var q = state.query.trim().toLowerCase();
   if (!q) return true;
   return (p.name + ' ' + p.id + ' ' + p.category + ' ' + (p.pack || '')).toLowerCase().indexOf(q) !== -1;
+}
+
+function matchesFamily(fam) {
+  if (state.category !== 'All' && fam.category !== state.category) return false;
+  var q = state.query.trim().toLowerCase();
+  if (!q) return true;
+  if ((fam.name + ' ' + fam.category).toLowerCase().indexOf(q) !== -1) return true;
+  return fam.variantIds.some(function (id) {
+    var p = productById(id);
+    return p && (p.name + ' ' + p.id + ' ' + (p.pack || '')).toLowerCase().indexOf(q) !== -1;
+  });
+}
+
+function familyMatchVariant(fam) {
+  var q = state.query.trim().toLowerCase();
+  if (!q) return null;
+  for (var i = 0; i < fam.variantIds.length; i++) {
+    var p = productById(fam.variantIds[i]);
+    if (p && (p.name + ' ' + p.id + ' ' + (p.pack || '')).toLowerCase().indexOf(q) !== -1) return p;
+  }
+  return null;
 }
 
 function renderChips() {
@@ -190,13 +252,137 @@ function renderCard(p) {
   return card;
 }
 
+function selectVariant(fid, vid) {
+  var fam = familyById(fid);
+  if (!fam || fam.variantIds.indexOf(vid) === -1) return;
+  state.sel[fid] = vid;
+  refreshFamily(fid);
+}
+
+function refreshFamily(fid) {
+  var fam = familyById(fid);
+  if (!fam) return;
+  var cards = document.querySelectorAll('.card'), i, card = null;
+  for (i = 0; i < cards.length; i++) {
+    if (cards[i].getAttribute('data-family') === fid) { card = cards[i]; break; }
+  }
+  if (!card) return;
+  var p = selectedVariant(fam);
+  var q = Number(state.qty[p.id] || 0);
+  card.setAttribute('data-qty', String(q));
+  var sel = card.querySelector('.vsel');
+  if (sel) {
+    sel.value = p.id;
+    for (i = 0; i < sel.options.length; i++) {
+      (function (opt) {
+        var vp = productById(opt.value);
+        if (!vp) return;
+        var vq = Number(state.qty[opt.value] || 0);
+        opt.textContent = sizeLabel(vp) + (vq > 0 ? ' ·' + vq : '');
+      })(sel.options[i]);
+    }
+  }
+  var mrp = card.querySelector('.prices s');
+  var now = card.querySelector('.prices .now');
+  if (mrp) mrp.textContent = rupees(p.mrp);
+  if (now) now.textContent = rupees(p.price);
+  var badge = card.querySelector('.photo .off');
+  if (badge) badge.textContent = '−' + offPct(p) + '%';
+  var buy = card.querySelector('.buy');
+  buy.innerHTML = '';
+  buy.appendChild(q === 0 ? addBtn(p) : stepper(p, q));
+  renderSummary();
+}
+
+function renderFamilyCard(fam) {
+  var hit = familyMatchVariant(fam);
+  if (hit) state.sel[fam.id] = hit.id;
+  var p = selectedVariant(fam);
+  var q = Number(state.qty[p.id] || 0);
+  var card = document.createElement('article');
+  card.className = 'card';
+  card.setAttribute('data-family', fam.id);
+  card.setAttribute('data-qty', String(q));
+
+  var photo = document.createElement('div');
+  photo.className = 'photo';
+  var img = document.createElement('img');
+  img.src = (productById(fam.variantIds[0]) || {}).img || '';
+  img.alt = fam.name;
+  img.loading = 'lazy';
+  photo.appendChild(img);
+  var off = offPct(p);
+  if (off > 0) {
+    var badge = document.createElement('span');
+    badge.className = 'off';
+    badge.textContent = '−' + off + '%';
+    photo.appendChild(badge);
+  }
+  card.appendChild(photo);
+
+  var body = document.createElement('div');
+  body.className = 'card-body';
+  var head = document.createElement('div');
+  head.className = 'fam-head';
+  var name = document.createElement('div');
+  name.className = 'name';
+  name.textContent = fam.name;
+  head.appendChild(name);
+  var sel = document.createElement('select');
+  sel.className = 'vsel';
+  sel.setAttribute('aria-label', 'Choose variant');
+  fam.variantIds.forEach(function (vid) {
+    var vp = productById(vid);
+    if (!vp) return;
+    var opt = document.createElement('option');
+    opt.value = vid;
+    var vq = Number(state.qty[vid] || 0);
+    opt.textContent = sizeLabel(vp) + (vq > 0 ? ' ·' + vq : '');
+    sel.appendChild(opt);
+  });
+  sel.value = p.id;
+  sel.addEventListener('change', function () { selectVariant(fam.id, sel.value); });
+  head.appendChild(sel);
+  body.appendChild(head);
+  if (p.pack) {
+    var pack = document.createElement('div');
+    pack.className = 'pack';
+    pack.textContent = p.pack;
+    body.appendChild(pack);
+  }
+  var prices = document.createElement('div');
+  prices.className = 'prices';
+  var mrp = document.createElement('s');
+  mrp.textContent = rupees(p.mrp);
+  var now = document.createElement('span');
+  now.className = 'now';
+  now.textContent = rupees(p.price);
+  prices.appendChild(mrp);
+  prices.appendChild(now);
+  body.appendChild(prices);
+
+  var buy = document.createElement('div');
+  buy.className = 'buy';
+  buy.appendChild(q === 0 ? addBtn(p) : stepper(p, q));
+  body.appendChild(buy);
+
+  card.appendChild(body);
+  return card;
+}
+
 function renderCatalog() {
   var root = document.getElementById('catalog');
   root.innerHTML = '';
   var groups = [], map = {};
-  state.products.filter(matches).forEach(function (p) {
-    if (!map[p.category]) { map[p.category] = []; groups.push(p.category); }
-    map[p.category].push(p);
+  function push(cat, entry) {
+    if (!map[cat]) { map[cat] = []; groups.push(cat); }
+    map[cat].push(entry);
+  }
+  FAMILIES.filter(matchesFamily).forEach(function (fam) {
+    push(fam.category, { kind: 'family', fam: fam });
+  });
+  state.products.filter(function (p) { return !GROUPED_IDS[p.id] && matches(p); }).forEach(function (p) {
+    push(p.category, { kind: 'product', product: p });
   });
   if (!groups.length) {
     var empty = document.createElement('div');
@@ -212,7 +398,7 @@ function renderCatalog() {
     root.appendChild(h);
     var grid = document.createElement('div');
     grid.className = 'grid';
-    map[cat].forEach(function (p) { grid.appendChild(renderCard(p)); });
+    map[cat].forEach(function (e) { grid.appendChild(e.kind === 'family' ? renderFamilyCard(e.fam) : renderCard(e.product)); });
     root.appendChild(grid);
   });
 }
